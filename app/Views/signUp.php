@@ -25,7 +25,7 @@
                         <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
                         <p>Enter your information to register</p>
                     </div>
-                    <form action="" method="POST">
+                    <form action="../Controllers/UserController/addUserController.php" method="POST">
                         <div>
                             <div class="flex -mx-3">
                                 <div class="w-1/2 px-3 mb-5">
@@ -35,7 +35,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
                                         </div>
-                                        <input type="text"
+                                        <input type="text" name="fullName"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="John">
                                     </div>
@@ -47,7 +47,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
                                         </div>
-                                        <input type="text"
+                                        <input type="text" name="username"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="Smith">
                                     </div>
@@ -62,7 +62,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
                                         </div>
-                                        <input type="email"
+                                        <input type="email" name="email"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="johnsmith@example.com">
                                     </div>
@@ -76,7 +76,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                                         </div>
-                                        <input type="password"
+                                        <input type="password" name="password"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="************">
                                     </div>
@@ -96,10 +96,10 @@
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <div class="flex text-sm text-gray-600">
-                                            <label for="file-upload"
+                                            <label for="logo"
                                                 class="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                                 <span class="">Upload a file</span>
-                                                <input id="logo" name="logo" type="file" class="sr-only">
+                                                <input id="logo" name="pictureUser" type="file" class="sr-only">
                                             </label>
                                             <p class="pl-1 text-black">or drag and drop</p>
                                         </div>
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </form>
-                    <p class="ml-20 ">Already have an account? <a href="#"
+                    <p class="ml-20 ">Already have an account? <a href="login.php"
                             class="text-blue-500 hover:text-blue-700 font-semibold">Log In
                         </a></p>
                 </div>

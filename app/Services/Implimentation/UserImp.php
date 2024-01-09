@@ -16,7 +16,7 @@ class UserImp extends DataBase implements UserInterface{
 
        
 
-        $sql = "INSERT INTO user (fullName,username,email,password,pictureUser) VALUES (:fullName,:username,:email,:password,:pictureUser);";
+        $sql = "INSERT INTO user (fullName,username,email,password,pictureUser,role) VALUES (:fullName,:username,:email,:password,:pictureUser,'author');";
         
         $stmt = $pdo->prepare($sql);
         

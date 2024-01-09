@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                         </form>
-                        <p class="ml-20 mt-8">Need an account? <a href="#"
+                        <p class="ml-20 mt-8">Need an account? <a href="signUp.php"
                                 class="text-blue-500 hover:text-blue-700 font-semibold">Create an
                                 account</a></p>
                     </div>
