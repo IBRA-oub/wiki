@@ -29,7 +29,7 @@
                     WIKI
                 </h2>
                 <li class="my-2">
-                    <a href="../assurance/dispalyAssurance.php"
+                    <a href="../category/displayCategory.php"
                         class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
                         <img class="h-8 sm:w-8 w-full" src="../../../../public/images/categories.png" alt=""> <span
                             class="hidden sm:inline-block">Categories</span></a>
