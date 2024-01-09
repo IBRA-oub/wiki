@@ -95,6 +95,69 @@
 
     <!-- =================mobile menu=============== -->
 
+
+    <div class="navbar-menu relative z-50 hidden">
+        <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+        <nav
+            class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+            <div class="flex items-center mb-8">
+                <div class="w-[90%]  ">
+                    <img class="w-[20%]" src=' ../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                </div>
+                <button class="navbar-close">
+                    <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <ul>
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="home.php">Home</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="categories.php">Categories</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="#">wikis</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="mt-auto">
+                <div class="pt-6">
+
+                    <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                        href="#">
+                        <span class="flex items-center">
+                            <img class="w-5 mr-2" src=' ../../../public/images/login.png' alt="Login Image">
+                            <span>Sign In</span>
+                        </span>
+                    </a>
+
+                    <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
+                        href="#">
+                        <span class="flex items-center">
+                            <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                            <span>Sign Up</span>
+                        </span>
+                    </a>
+                </div>
+                <p class="my-4 text-xs text-center text-gray-400">
+                    <span>Copyright © 2024</span>
+                </p>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- =================mobile menu end=============== -->
+
     <!-- Contenu principal -->
     <div>
 
