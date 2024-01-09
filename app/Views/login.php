@@ -27,7 +27,7 @@
                         <p>WELCOME BACK</p>
                     </div>
                     <div>
-                        <form action="" method="POST">
+                        <form action="../Controllers/Login/LoginController.php" method="POST">
                             <div class="w-full px-3 mb-12">
                                 <label for="" class="text-xs font-semibold px-1">UserName</label>
                                 <div class="flex">
@@ -35,7 +35,7 @@
                                         class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                         <i class="mdi mdi-account-outline text-gray-400 text-lg"></i>
                                     </div>
-                                    <input type="text"
+                                    <input type="text" name="username"
                                         class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                         placeholder="John">
                                 </div>
@@ -49,7 +49,7 @@
                                             class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
                                         </div>
-                                        <input type="password"
+                                        <input type="password" name="password"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="************">
                                     </div>

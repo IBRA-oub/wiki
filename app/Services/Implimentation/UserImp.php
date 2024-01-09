@@ -29,17 +29,7 @@ class UserImp extends DataBase implements UserInterface{
 
         $stmt->execute();
     }
-    public function displayUser(){
-
-        $pdo = $this->connection();
-
-        $sql = "SELECT * FROM user";
-        
-        $data = $pdo->query($sql);
-        $user = $data->fetchAll(PDO::FETCH_ASSOC);
-
-        return  $user;
-    }
+   
     public function fetchUser($id){
 
         $pdo = $this->connection();

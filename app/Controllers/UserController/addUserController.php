@@ -1,7 +1,7 @@
 <?php
 
 require_once('../../Models/User.php');
-
+require_once('../../Services/Interface/UserInterface.php');
 require_once('../../Services/Implimentation/UserImp.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
