@@ -1,5 +1,5 @@
 <?php
-require_once '../sidebar.php';
+require_once '../../sidebar.php';
 ?>
 
 <!--===========Content===========-->
@@ -68,12 +68,7 @@ require_once '../sidebar.php';
 
 
                             </button>
-                            <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'];?>"><i
-                                        class="fa-solid fa-trash " style="color:#186F65"></i></a> -->
 
-                            </button>
 
 
                         </td>
@@ -135,12 +130,7 @@ require_once '../sidebar.php';
                                     <i class="fa-solid fa-pen"></i></a> -->
 
                             </button>
-                            <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'] ;?>"><i
-                                        class="fa-solid fa-trash"></i></a> -->
 
-                            </button>
 
 
                         </td>

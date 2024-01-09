@@ -18,7 +18,7 @@ require_once '../../sidebar.php';
 
 
                 <button class="bg-green-700 text-white w-[160px] h-[50px] rounded-md" id="addBank">
-                    <a href="addCategory.php">Add Article</a>
+                    <a href="addCategory.php">Add Wiki</a>
                 </button>
             </div>
         </div>
@@ -31,8 +31,9 @@ require_once '../../sidebar.php';
                 <thead class="  sm:w-full">
                     <tr class="bg-green-700 text-white h-[60px]">
                         <th class="">ID</th>
-                        <th class="">nameCategorie</th>
-                        <th class="">Description</th>
+                        <th class="">title</th>
+                        <th class="">summarize</th>
+                        <th class="">content</th>
                         <th class="">picture</th>
                         <th class="">Actions</th>
                     </tr>
@@ -58,18 +59,21 @@ require_once '../../sidebar.php';
                             <!-- <?php echo $ArtiData['Date'] ?> -->
                         </td>
                         <td class=" sm:text-center text-right">
+                            <!-- <?php echo $ArtiData['Date'] ?> -->
+                        </td>
+                        <td class=" sm:text-center text-right">
                             <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
                                 <!-- <a href="updateCategory.php?Article_ID=<?= $ArtiData['Article_ID'];?>"> -->
                                 <i class="fa-solid fa-pen " style="color:#186F65"></i></a>
 
 
                             </button>
-                            <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'];?>"><i
-                                        class="fa-solid fa-trash " style="color:#186F65"></i></a> -->
+                            <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
+                                <!-- <a href="updateArticle.php?Article_ID=<?= $ArtiData ['Article_ID'];?>">
+                                    <i class="fa-solid fa-pen"></i></a> -->
 
                             </button>
+
 
 
                         </td>
@@ -92,6 +96,7 @@ require_once '../../sidebar.php';
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
 
 
                     </tr>
@@ -106,13 +111,17 @@ require_once '../../sidebar.php';
                             class="border-b before:content-['id']  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 sm:before:hidden sm:text-center block    text-right">
                             <!-- <?php echo  $ArtiData['Article_ID'] ?> -->
                         </td>
-                        <td data-label="nameCategorie" class="border-b before:content-['nameCategorie'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                        <td data-label="title" class="border-b before:content-['title'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
                             <!-- <?php echo  $ArtiData['Title'] ?> -->
                         </td>
-                        <td data-label="Description" class="border-b before:content-['Description'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                        <td data-label="sammurize" class="border-b before:content-['sammurize'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
                             <!-- <?php echo  $ArtiData['Description'] ?> -->
+                        </td>
+                        <td data-label="content" class="border-b before:content-['content'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                             text-right">
+                            <!-- <?php echo $ArtiData['Date'] ?> -->
                         </td>
                         <td data-label="picture" class="border-b before:content-['picture'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
@@ -127,11 +136,11 @@ require_once '../../sidebar.php';
 
                             </button>
                             <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'] ;?>"><i
-                                        class="fa-solid fa-trash"></i></a> -->
+                                <!-- <a href="updateArticle.php?Article_ID=<?= $ArtiData ['Article_ID'];?>">
+                                    <i class="fa-solid fa-pen"></i></a> -->
 
                             </button>
+
 
 
                         </td>
