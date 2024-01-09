@@ -10,11 +10,7 @@ CREATE TABLE IF NOT EXISTS `category`(
 
 );
 
--- table of role
 
-CREATE TABLE IF NOT EXISTS `role`(
-    nameRole VARCHAR(255) NOT NULL PRIMARY KEY
-);
 
 -- table of user
 
@@ -25,8 +21,8 @@ CREATE TABLE IF NOT EXISTS `user`(
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     pictureUser VARCHAR(255) NOT NULL,
-    nameRole VARCHAR(255) NOT NULL,
-    FOREIGN KEY (nameRole) REFERENCES role(nameRole) ON DELETE CASCADE ON UPDATE CASCADE
+    role ENUM('admin','author') NOT NULL
+   
 
 );
 -- table of wiki
@@ -65,11 +61,8 @@ CREATE TABLE IF NOT EXISTS `tagOfWiki`(
 
 
 
--- insert into role
 
-INSERT INTO `role`  VALUES ("admin");
-INSERT INTO `role`  VALUES ("author");
 
 -- insert into user
 
-INSERT INTO user (fullName, username, email, password, nameRole) VALUES ("admin", "admin", "admin@gmail.com", "$2y$10$Lg6NL1lzO08isblJ/NEHzuKnMqATylQ008sjwtDUqp7zc0I8l9Dsa", "admin");
+INSERT INTO user (fullName, username, email, password, role) VALUES ("admin", "admin", "admin@gmail.com", "$2y$10$Lg6NL1lzO08isblJ/NEHzuKnMqATylQ008sjwtDUqp7zc0I8l9Dsa", "admin");

@@ -20,51 +20,46 @@
     <section class=" flex items-center relative">
 
         <!-- =========== Aside bar =========== -->
-        <aside class="bg-[#343a40] h-[100vh] w-[20%] sm:w-[320px] sm:p-5">
+        <aside class="bg-green-700 h-[100vh] w-[20%] sm:w-[320px] sm:p-5">
             <!-- ===== logo ===== -->
 
             <ul class="p-5 mt-10">
 
                 <h2 class="text-base sm:text-2xl font-bold sm:my-5 text-white">
-                    Assurance
+                    WIKI
                 </h2>
                 <li class="my-2">
                     <a href="../assurance/dispalyAssurance.php"
-                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-red-500 bg-opacity-20">
-                        <img class="h-8 sm:w-8 w-full" src="../../../public/images/assurance.png" alt=""> <span
-                            class="hidden sm:inline-block">Assurances</span></a>
+                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
+                        <img class="h-8 sm:w-8 w-full" src="../../../../public/images/categories.png" alt=""> <span
+                            class="hidden sm:inline-block">Categories</span></a>
                 </li>
                 <li class="my-2">
                     <a href="../clients/displayClients.php"
-                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-red-500 bg-indigo-200 bg-opacity-20">
-                        <img class="h-8 sm:w-8 w-full" src="../../../public/images/client.png" alt=""><span
-                            class="hidden sm:inline-block">Clients</span></a>
+                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
+                        <img class="h-8 sm:w-8 w-full" src="../../../../public/images/tags.png" alt=""><span
+                            class="hidden sm:inline-block">Tags</span></a>
                 </li>
 
 
                 <li class="my-2">
                     <a href="../Article/displayArticle.php"
-                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-red-500 bg-indigo-200 bg-opacity-20">
-                        <img class="h-8 sm:w-8 w-full" src="../../../public/images/cars.png" alt=""><span
-                            class="hidden sm:inline-block">Articales</span></a>
+                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
+                        <img class="h-8 sm:w-8 w-full" src="../../../../public/images/wiki.png" alt=""><span
+                            class="hidden sm:inline-block">Wikis</span></a>
                 </li>
                 <li class="my-2">
                     <a href="../Claims/displayClaim.php"
-                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-red-500 bg-indigo-200 bg-opacity-20">
+                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
                         <i class="fa-solid "></i>
-                        <img class="h-8 sm:w-8 w-full" src="../../../public/images/fichier.png" alt=""><span
-                            class="hidden sm:inline-block">Claims</span></a>
+                        <img class="h-8 sm:w-8 w-full" src="../../../../public/images/archive.png" alt=""><span
+                            class="hidden sm:inline-block">Archive</span></a>
                 </li>
 
 
 
 
-                <li class="my-2">
-                    <a href="../Primes/displayPrime.php"
-                        class="text-lf font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-red-500 bg-indigo-200 bg-opacity-20">
-                        <img class="h-8 sm:w-8 w-full" src="../../../public/images/prime.png" alt="">
-                        <span class="hidden sm:inline-block">Primes</span></a>
-                </li>
+
 
                 <li> <a href=""
                         class="bg-[#B5CB99] h-10 w-[50%] sm:w-full flex justify-center items-center rounded-lg text-[#0F1A19] font-bold m-auto mt-10"><button
