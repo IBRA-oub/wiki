@@ -1,5 +1,6 @@
 <?php
 
+require_once('../../Models/Category.php');
 require_once(__DIR__. '/../../Services/Interface/CategoryInterface.php');
 require_once(__DIR__. '/../../Services/Implimentation/CategoryImp.php');
 
