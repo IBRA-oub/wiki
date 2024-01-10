@@ -1,5 +1,6 @@
 <?php
 require_once '../../sidebar.php';
+require_once'../../../Controllers/TagController/displayTagController.php';
 ?>
 
 <!--===========Content===========-->
@@ -38,29 +39,29 @@ require_once '../../sidebar.php';
                 </thead>
                 <tbody class="sm:w-full">
 
-                    <!-- <?php 
-            //   foreach($ArticleData as $ArtiData) {
-              ?> -->
+                    <?php 
+              foreach($TagDatas as $TagData) {
+              ?>
                     <tr class=" pt-10 sm:pt-0  w-full ">
 
                         <td class=" sm:text-center text-right">
-                            <!-- <?php echo  $ArtiData['Article_ID'] ?> -->
+                            <?php echo  $TagData['idTag'] ?>
                         </td>
                         <td class=" sm:text-center text-right">
-                            <!-- <?php echo $ArtiData['Title'] ?> -->
+                            <?php echo $TagData['nameTag'] ?>
                         </td>
 
                         <td class=" sm:text-center text-right">
                             <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a href="updateCategory.php?Article_ID=<?= $ArtiData['Article_ID'];?>"> -->
-                                <i class="fa-solid fa-pen " style="color:#186F65"></i></a>
+                                <a href="updateTag.php?idTag=<?=$TagData['idTag'];?>">
+                                    <i class="fa-solid fa-pen " style="color:#186F65"></i></a>
 
 
                             </button>
                             <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'];?>"><i
-                                        class="fa-solid fa-trash " style="color:#186F65"></i></a> -->
+                                <a
+                                    href="../../../Controllers/TagController/deleteTagController.php?idTag=<?=$TagData['idTag'];?>"><i
+                                        class="fa-solid fa-trash " style="color:#186F65"></i></a>
 
                             </button>
 
@@ -68,9 +69,9 @@ require_once '../../sidebar.php';
                         </td>
 
                     </tr>
-                    <!-- <?php 
-            //   }
-              ?> -->
+                    <?php 
+              }
+              ?>
 
                 </tbody>
             </table>
@@ -89,31 +90,31 @@ require_once '../../sidebar.php';
                     </tr>
                 </thead>
                 <tbody class="block  w-full">
-                    <!-- <?php 
-            //   foreach($ArticleData as $ClienData) {
-              ?> -->
+                    <?php 
+              foreach($TagDatas as $TagData){
+              ?>
                     <tr class="block pt-10 sm:pt-0   w-full ">
 
                         <td data-label="id"
                             class="border-b before:content-['id']  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 sm:before:hidden sm:text-center block    text-right">
-                            <!-- <?php echo  $ArtiData['Article_ID'] ?> -->
+                            <?php echo  $TagData['idTag'] ?>
                         </td>
-                        <td data-label="nameCategorie" class="border-b before:content-['nameCategorie'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                        <td data-label="name Tag" class="border-b before:content-['name Tag'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
-                            <!-- <?php echo  $ArtiData['Title'] ?> -->
+                            <?php echo  $TagData['nameTga'] ?>
                         </td>
 
                         <td data-label="ACtion"
                             class="border-b before:content-['action'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2  sm:before:hidden  sm:text-center block    text-right">
                             <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a href="updateArticle.php?Article_ID=<?= $ArtiData ['Article_ID'];?>">
-                                    <i class="fa-solid fa-pen"></i></a> -->
+                                <a href="updateTag.php?idTag=<?= $TagData['idTag'];?>">
+                                    <i class="fa-solid fa-pen"></i></a>
 
                             </button>
                             <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'] ;?>"><i
-                                        class="fa-solid fa-trash"></i></a> -->
+                                <a
+                                    href="../../../Controllers/TagController/deleteTagController.php?idTag=<?= $TagData['idTag'] ;?>"><i
+                                        class="fa-solid fa-trash"></i></a>
 
                             </button>
 
@@ -121,9 +122,9 @@ require_once '../../sidebar.php';
                         </td>
 
                     </tr>
-                    <!-- <?php 
-            //   }
-              ?> -->
+                    <?php 
+              }
+              ?>
 
                 </tbody>
             </table>
