@@ -18,7 +18,7 @@ require_once '../../sidebar.php';
 
 
                 <button class="bg-green-700 text-white w-[160px] h-[50px] rounded-md" id="addBank">
-                    <a href="addCategory.php">Add Tag</a>
+                    <a href="addTag.php">Add Tag</a>
                 </button>
             </div>
         </div>
