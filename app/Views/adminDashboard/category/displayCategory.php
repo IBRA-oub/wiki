@@ -19,7 +19,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
 
 
                 <button class="bg-green-700 text-white w-[160px] h-[50px] rounded-md" id="addBank">
-                    <a href="addCategory.php">Add Article</a>
+                    <a href="addCategory.php">Add Category</a>
                 </button>
             </div>
         </div>
