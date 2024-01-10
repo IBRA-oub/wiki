@@ -2,7 +2,6 @@
 
 
 require_once(dirname(dirname(__FILE__)) .'/Interface/LoginInterface.php');
-
 require_once('../../config/DataBase.php');
 
 class LoginImp  extends DataBase implements LoginInteface{

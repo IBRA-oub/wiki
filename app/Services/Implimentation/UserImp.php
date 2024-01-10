@@ -2,7 +2,6 @@
 
 require_once('../../config/DataBase.php');
 require_once('../../Models/User.php');
-// require_once('../Interface/UserInterface.php');
 require_once(dirname(dirname(__FILE__)) .'/Interface/UserInterface.php');
 
 class UserImp extends DataBase implements UserInterface{
