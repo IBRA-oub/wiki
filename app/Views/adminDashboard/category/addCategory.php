@@ -14,24 +14,24 @@
     <!--================form-add-Assurance================ -->
     <section class="max-w-4xl p-6 mx-auto bg-gray-200 rounded-md shadow-xl shadow-gray-300  mt-52">
         <h1 class="text-xl font-bold text-black capitalize dblack">Add Category</h1>
-        <form action="../../Controllers/AssuranceController/AddAssurance.php" method="POST"
+        <form action="../../../Controllers/CategoryController/addCategoryController.php" method="POST"
             enctype="multipart/form-data">
             <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
                     <label class="text-black " for="username">Category Name</label>
-                    <input id="Name" type="text" name="Name"
+                    <input id="Name" type="text" name="nameCategory"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md     focus:outline-none focus:ring">
                 </div>
 
                 <div>
                     <label class="text-black " for="username">Description</label>
-                    <input id="Name" type="text" name="Name"
+                    <input id="Name" type="text" name="description"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md     focus:outline-none focus:ring">
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-black">
-                        Logo
+                        picture
                     </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-black border-dashed rounded-md">
                         <div class="space-y-1 text-center">
@@ -45,7 +45,7 @@
                                 <label for="file-upload"
                                     class="relative cursor-pointer bg-black rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                     <span class="">Upload a file</span>
-                                    <input id="file-upload" name="Logo" type="file" class="sr-only">
+                                    <input id="file-upload" name="pictureCategory" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1 text-black">or drag and drop</p>
                             </div>
