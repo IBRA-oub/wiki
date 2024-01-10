@@ -1,7 +1,7 @@
 <?php
 
-require_once('../../config/DataBase.php');
-require_once('../../Models/Category.php');
+require_once(__DIR__.'/../../config/DataBase.php');
+require_once(__DIR__.'/../../Models/Category.php');
 require_once(dirname(dirname(__FILE__)) .'/Interface/CategoryInterface.php');
 
 class CategoryImp extends DataBase implements CategoryInterface{

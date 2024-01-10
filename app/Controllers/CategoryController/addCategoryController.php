@@ -10,12 +10,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $nomImage = $_FILES['pictureCategory']['name'];
     $tmpImage = $_FILES['pictureCategory']['tmp_name'];
     
+    // path for insert into base de donnes
     $path = "../../../public/uploads/";
     
     $pictureCategory = $path .  $nomImage ;
     
     //for checking if the image was uploaded
     $result = move_uploaded_file($tmpImage , $pictureCategory);
+
+    // path for affichage
+    $path = "../../../../public/uploads/";
+    
+    $pictureCategory = $path .  $nomImage ;
 
     try{
         

@@ -1,5 +1,6 @@
 <?php
 require_once '../../sidebar.php';
+require_once'../../../Controllers/CategoryController/displayCategoryController.php';
 ?>
 
 <!--===========Content===========-->
@@ -38,28 +39,33 @@ require_once '../../sidebar.php';
                     </tr>
                 </thead>
                 <tbody class="sm:w-full">
+                    <?php 
+              foreach($categoryData as $CatData) {
+              ?>
 
-                    <!-- <?php 
-            //   foreach($ArticleData as $ArtiData) {
-              ?> -->
                     <tr class=" pt-10 sm:pt-0  w-full ">
 
                         <td class=" sm:text-center text-right">
-                            <!-- <?php echo  $ArtiData['Article_ID'] ?> -->
+                            <?php echo  $CatData['idCategory'] ?>
                         </td>
                         <td class=" sm:text-center text-right">
-                            <!-- <?php echo $ArtiData['Title'] ?> -->
+                            <?php echo $CatData['nameCategory'] ?>
                         </td>
 
                         <td class=" sm:text-center text-right">
-                            <!-- <?php echo $ArtiData['Description'] ?> -->
+                            <?php echo $CatData['description'] ?>
                         </td>
                         <td class=" sm:text-center text-right">
-                            <!-- <?php echo $ArtiData['Date'] ?> -->
+                            <div class="flex items-center justify-center">
+                                <?php
+                                $cheminImage = $CatData['pictureCategory'] ;
+                                echo "<img class='w-[50px] h-[50px] ' src='$cheminImage' alt='image de categorie'>";
+                                ?>
+                            </div>
                         </td>
                         <td class=" sm:text-center text-right">
                             <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a href="updateCategory.php?Article_ID=<?= $ArtiData['Article_ID'];?>"> -->
+                                <!-- <a href="updateCategory.php?idCategory=<?= $CatData['idCategory'];?>"> -->
                                 <i class="fa-solid fa-pen " style="color:#186F65"></i></a>
 
 
@@ -75,9 +81,9 @@ require_once '../../sidebar.php';
                         </td>
 
                     </tr>
-                    <!-- <?php 
-            //   }
-              ?> -->
+                    <?php 
+              }
+              ?>
 
                 </tbody>
             </table>
@@ -97,26 +103,31 @@ require_once '../../sidebar.php';
                     </tr>
                 </thead>
                 <tbody class="block  w-full">
-                    <!-- <?php 
-            //   foreach($ArticleData as $ClienData) {
-              ?> -->
+                    <?php 
+              foreach($categoryData as $CatData) {
+              ?>
                     <tr class="block pt-10 sm:pt-0   w-full ">
 
                         <td data-label="id"
                             class="border-b before:content-['id']  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 sm:before:hidden sm:text-center block    text-right">
-                            <!-- <?php echo  $ArtiData['Article_ID'] ?> -->
+                            <?php echo $CatData['idCategory'] ?>
                         </td>
                         <td data-label="nameCategorie" class="border-b before:content-['nameCategorie'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
-                            <!-- <?php echo  $ArtiData['Title'] ?> -->
+                            <?php echo $CatData['nameCategory'] ?>
                         </td>
                         <td data-label="Description" class="border-b before:content-['Description'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
-                            <!-- <?php echo  $ArtiData['Description'] ?> -->
+                            <?php echo  $CatData['description'] ?>
                         </td>
                         <td data-label="picture" class="border-b before:content-['picture'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
-                            <!-- <?php echo $ArtiData['Date'] ?> -->
+                            <div class="flex items-center justify-center">
+                                <?php
+                                $cheminImage = $CatData['pictureCategory'] ;
+                                echo "<img class='w-[50px] h-[50px] ' src='$cheminImage' alt='image de categorie'>";
+                                ?>
+                            </div>
                         </td>
 
                         <td data-label="ACtion"
@@ -137,9 +148,9 @@ require_once '../../sidebar.php';
                         </td>
 
                     </tr>
-                    <!-- <?php 
-            //   }
-              ?> -->
+                    <?php 
+              }
+              ?>
 
                 </tbody>
             </table>
