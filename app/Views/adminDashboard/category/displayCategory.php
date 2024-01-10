@@ -64,16 +64,16 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                             </div>
                         </td>
                         <td class=" sm:text-center text-right">
-                            <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a href="updateCategory.php?idCategory=<?= $CatData['idCategory'];?>"> -->
-                                <i class="fa-solid fa-pen " style="color:#186F65"></i></a>
+                            <button class="bg-green-800 text-white w-[35px] h-[35px] rounded-md">
+                                <a href="updateCategory.php?idCategory=<?= $CatData['idCategory'];?>">
+                                    <i class="fa-solid fa-pen " style="color:#1D2B53"></i></a>
 
 
                             </button>
-                            <button class="bg-[#212529] text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'];?>"><i
-                                        class="fa-solid fa-trash " style="color:#186F65"></i></a> -->
+                            <button class="bg-green-800 text-white w-[35px] h-[35px] rounded-md">
+                                <a
+                                    href="../../../Controllers/CategoryController/deleteCategoryController.php?idCategory=<?= $CatData['idCategory'];?>"><i
+                                        class="fa-solid fa-trash " style="color:#1D2B53"></i></a>
 
                             </button>
 
