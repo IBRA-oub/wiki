@@ -35,7 +35,7 @@
                             class="hidden sm:inline-block">Categories</span></a>
                 </li>
                 <li class="my-2">
-                    <a href="../clients/displayClients.php"
+                    <a href="../tag/displayTag.php"
                         class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
                         <img class="h-8 sm:w-8 w-full" src="../../../../public/images/tags.png" alt=""><span
                             class="hidden sm:inline-block">Tags</span></a>
@@ -43,13 +43,13 @@
 
 
                 <li class="my-2">
-                    <a href="../Article/displayArticle.php"
+                    <a href="../wiki/displayWiki.php"
                         class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
                         <img class="h-8 sm:w-8 w-full" src="../../../../public/images/wiki.png" alt=""><span
                             class="hidden sm:inline-block">Wikis</span></a>
                 </li>
                 <li class="my-2">
-                    <a href="../Claims/displayClaim.php"
+                    <a href="../archive/archiveWiki.php"
                         class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
                         <i class="fa-solid "></i>
                         <img class="h-8 sm:w-8 w-full" src="../../../../public/images/archive.png" alt=""><span

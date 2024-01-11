@@ -68,13 +68,14 @@ class WikiImp extends DataBase implements WikiInterface{
         $title = $wiki->getTitle();
         $content = $wiki->getContent();
         $summarize = $wiki->getSummarize();
+        $dateCreated = $wiki->getDateCreated();
         $dateModified = $wiki->getDateModified();
         $pictureWiki = $wiki->getPictureWiki();
         $idCategory = $wiki->getIdCategory();
         $idUser = $wiki->getIdUser();
     
         // Mettez à jour les informations principales du wiki
-        $sqlUpdateWiki = "UPDATE wiki SET title = :title,  content = :content, summarize = :summarize,  dateModified = :dateModified, archived = '0',  pictureWiki = :pictureWiki, 
+        $sqlUpdateWiki = "UPDATE wiki SET title = :title,  content = :content, summarize = :summarize, dateCreated = :dateCreated , dateModified = :dateModified, archived = '0',  pictureWiki = :pictureWiki, 
                               idCategory = :idCategory,  idUser = :idUser WHERE idWiki = :idWiki";
 
         $stmtUpdateWiki = $pdo->prepare($sqlUpdateWiki);
@@ -82,6 +83,7 @@ class WikiImp extends DataBase implements WikiInterface{
         $stmtUpdateWiki->bindParam(':title', $title);
         $stmtUpdateWiki->bindParam(':content', $content);
         $stmtUpdateWiki->bindParam(':summarize', $summarize);
+        $stmtUpdateWiki->bindParam(':dateCreated', $dateCreated);
         $stmtUpdateWiki->bindParam(':dateModified', $dateModified);
         $stmtUpdateWiki->bindParam(':pictureWiki', $pictureWiki);
         $stmtUpdateWiki->bindParam(':idCategory', $idCategory);
@@ -118,5 +120,65 @@ class WikiImp extends DataBase implements WikiInterface{
         $DeletWiki= $stmt->execute();
         return  $DeletWiki;
     }
-    public function fetchWiki($id){}
+    public function fetchWiki($id){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki WHERE idWiki = :id";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        
+        $stmt->execute();
+        $fetchWiki = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return  $fetchWiki;
+    }
+
+// ============================display admin and archived ====================
+    public function ArchivedWiki($id){
+        $pdo = $this->connection();
+
+        $sql = "UPDATE `wiki` SET archived= 1  WHERE idWiki = :id";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    public function dispalyNonArchivedWiki(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki WHERE archived = '0' ";
+        
+        $data = $pdo->query($sql);
+        $wikiAdminData = $data->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $wikiAdminData;
+    }
+
+    // ============================display archive admin and Nonarchived ====================
+    public function NonArchivedWiki($id){
+        $pdo = $this->connection();
+
+        $sql = "UPDATE `wiki` SET archived = '0'  WHERE idWiki = :id";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    public function dispalyArchivedWiki(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki WHERE archived = '1'";
+        
+        $data = $pdo->query($sql);
+        $wikiNonAdminData = $data->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $wikiNonAdminData;
+    }
 }

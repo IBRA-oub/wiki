@@ -43,9 +43,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // ===============================image end========================
 
+    $date = new WikiImp();
+    $dateCreat = $date->fetchWiki( $idWiki);
+    
     try {
         // Créer une instance de Wiki avec les données du formulaire
-        $wiki = new Wiki($title, $content, $summarize, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'),$pictureWiki, $idCategory, $idUser);
+        $wiki = new Wiki($title, $content, $summarize, $dateCreat['$dateCreat'], date('Y-m-d H:i:s'),$pictureWiki, $idCategory, $idUser);
         $wiki->setIdWiki($idWiki);
         
        
