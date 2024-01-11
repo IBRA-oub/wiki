@@ -71,7 +71,7 @@
 
 
                             <button class="bg-green-700 text-white w-[160px] h-[50px] rounded-md" id="addBank">
-                                <a href="addCategory.php">Add Wiki</a>
+                                <a href="addWiki.php">Add Wiki</a>
                             </button>
                         </div>
                     </div>

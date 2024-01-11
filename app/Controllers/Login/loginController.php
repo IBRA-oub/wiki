@@ -1,5 +1,5 @@
 <?php
-
+ session_start();
 require_once('../../Services/Interface/LoginInterface.php');
 require_once('../../Services/Implimentation/LoginImp.php');
 
@@ -16,8 +16,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         if(password_verify($password, $row['password'])){
 
-            session_start();
-            $_SESSION['idUser'] = $row['id'];
+           
+            $_SESSION['idUser'] = $row['idUser'];
             
             if ( $row['role'] == "admin") {
                 header('location:../../Views/adminDashboard/dashboard/dashboard.php');
