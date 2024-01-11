@@ -123,13 +123,13 @@ class WikiImp extends DataBase implements WikiInterface{
     public function fetchWiki($id){
         $pdo = $this->connection();
 
-        $sql = "SELECT * FROM wiki WHERE idWiki = :id";
+        $sql = "SELECT * FROM wiki WHERE idUser = :id";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id',$id);
         
         $stmt->execute();
-        $fetchWiki = $stmt->fetch(PDO::FETCH_ASSOC);
+        $fetchWiki = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return  $fetchWiki;
     }
