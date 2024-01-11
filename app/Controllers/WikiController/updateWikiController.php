@@ -9,7 +9,8 @@ require_once(__DIR__.'../../../Services/Interface/TagInterface.php');
 require_once(__DIR__.'../../../Services/Implimentation/TagImp.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
+     // Récupérer id de wiki a mese a jour
+     $idWiki = $_POST['idWiki'];
     // Récupérer les données du formulaire
     $title = $_POST['title'];
     $summarize = $_POST['sammurize'];
@@ -18,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // session for user Id
      $idUser = $_SESSION['idUser'];
  
-
      
     // Récupérer les tags sélectionnés
     $tagIds = isset($_POST['selectedTags']) ? $_POST['selectedTags'] : [];
@@ -46,16 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         // Créer une instance de Wiki avec les données du formulaire
         $wiki = new Wiki($title, $content, $summarize, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'),$pictureWiki, $idCategory, $idUser);
-        echo'<pre>';
-        print_r($wiki);
-        echo'</pre>';
+        $wiki->setIdWiki($idWiki);
         
-        echo'<pre>';
-        print_r($tagIds);
-        echo'</pre>';
+       
         // Insérer le wiki avec ses tags
         $wikiService = new WikiImp();
-        $wikiService->addWiki($wiki, $tagIds);
+        $wikiService->updateWiki($wiki, $tagIds);
         
       
 

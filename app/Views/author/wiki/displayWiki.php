@@ -139,7 +139,8 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
 
                                         </button>
                                         <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                            <a href="updateArticle.php?idWiki=<?= $WikiData['idWiki'];?>">
+                                            <a
+                                                href="../../../Controllers/WikiController/deleteWikiController.php?idWiki=<?= $WikiData['idWiki'];?>">
                                                 <i class="fa-solid fa-trash "></i></a>
 
                                         </button>
@@ -221,7 +222,8 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
 
                                         </button>
                                         <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                            <a href="updateArticle.php?idWiki=<?= $WikiData['idWiki'];;?>">
+                                            <a
+                                                href="../../../Controllers/WikiController/deleteWikiController.php?idWiki=<?= $WikiData['idWiki'];;?>">
                                                 <i class="fa-solid fa-trash "></i></a>
 
                                         </button>

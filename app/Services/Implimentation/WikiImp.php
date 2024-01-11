@@ -60,7 +60,63 @@ class WikiImp extends DataBase implements WikiInterface{
 
         return  $wikiData;
     }
-    public function updateWiki(Wiki $wiki){}
-    public function deleteWiki($id){}
+    public function updateWiki(Wiki $wiki, array $tagIds)
+    {
+        $pdo = $this->connection();
+    
+        $idWiki = $wiki->getIdWiki();
+        $title = $wiki->getTitle();
+        $content = $wiki->getContent();
+        $summarize = $wiki->getSummarize();
+        $dateModified = $wiki->getDateModified();
+        $pictureWiki = $wiki->getPictureWiki();
+        $idCategory = $wiki->getIdCategory();
+        $idUser = $wiki->getIdUser();
+    
+        // Mettez à jour les informations principales du wiki
+        $sqlUpdateWiki = "UPDATE wiki SET title = :title,  content = :content, summarize = :summarize,  dateModified = :dateModified, archived = '0',  pictureWiki = :pictureWiki, 
+                              idCategory = :idCategory,  idUser = :idUser WHERE idWiki = :idWiki";
+
+        $stmtUpdateWiki = $pdo->prepare($sqlUpdateWiki);
+    
+        $stmtUpdateWiki->bindParam(':title', $title);
+        $stmtUpdateWiki->bindParam(':content', $content);
+        $stmtUpdateWiki->bindParam(':summarize', $summarize);
+        $stmtUpdateWiki->bindParam(':dateModified', $dateModified);
+        $stmtUpdateWiki->bindParam(':pictureWiki', $pictureWiki);
+        $stmtUpdateWiki->bindParam(':idCategory', $idCategory);
+        $stmtUpdateWiki->bindParam(':idUser', $idUser);
+        $stmtUpdateWiki->bindParam(':idWiki', $idWiki);
+    
+        $stmtUpdateWiki->execute();
+    
+        // Supprimer tous les tags associés à ce wiki
+        $sqlDeleteTags = "DELETE FROM tagofwiki WHERE idWiki = :idWiki";
+        $stmtDeleteTags = $pdo->prepare($sqlDeleteTags);
+        $stmtDeleteTags->bindParam(':idWiki', $idWiki);
+        $stmtDeleteTags->execute();
+    
+        // Réinsérer les tags mis à jour
+        foreach ($tagIds as $tagId) {
+            $sqlTagOfWiki = "INSERT INTO tagofwiki (idTag, idWiki) VALUES (:idTag, :idWiki)";
+            $stmtTagOfWiki = $pdo->prepare($sqlTagOfWiki);
+            $stmtTagOfWiki->bindParam(':idWiki', $idWiki);
+            $stmtTagOfWiki->bindParam(':idTag', $tagId);
+    
+            $stmtTagOfWiki->execute();
+        }
+    }
+    
+    public function deleteWiki($id){
+        $pdo = $this->connection();
+       
+        $sql = "DELETE FROM wiki WHERE idWiki = :id";
+       
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+       
+        $DeletWiki= $stmt->execute();
+        return  $DeletWiki;
+    }
     public function fetchWiki($id){}
 }

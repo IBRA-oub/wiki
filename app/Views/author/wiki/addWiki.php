@@ -16,7 +16,7 @@
 
  <body>
      <!--================form-add-Assurance================ -->
-     <section class="max-w-4xl p-6 mx-auto bg-gray-200 rounded-md shadow-xl shadow-gray-300  mt-52">
+     <section class="max-w-4xl p-6 mx-auto bg-gray-200 rounded-md shadow-xl shadow-gray-300  mt-36">
          <h1 class="text-xl font-bold text-black capitalize dblack">Add Wiki</h1>
          <form action="../../../Controllers/WikiController/addWikiController.php" method="POST"
              enctype="multipart/form-data">
@@ -130,44 +130,7 @@
          </form>
      </section>
 
-     <script>
-     function addSelectedTag() {
-         var tagsSelect = document.getElementById('tags');
-         var selectedTagsContainer = document.getElementById('selectedTagsContainer');
-         var selectedTagsInput = document.getElementById('selectedTagsInput');
-         var selectedTags = [];
 
-         for (var i = 0; i < tagsSelect.options.length; i++) {
-             if (tagsSelect.options[i].selected) {
-                 var tagId = tagsSelect.options[i].value;
-                 var tagName = tagsSelect.options[i].text;
-
-                 // Vérifiez si le tag n'est pas déjà ajouté
-                 if (!document.getElementById('selectedTag_' + tagId)) {
-                     var tagContainer = document.createElement('span');
-                     tagContainer.id = 'selectedTag_' + tagId;
-                     tagContainer.className =
-                         'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2';
-                     tagContainer.innerHTML = tagName + ' <button type="button" onclick="removeSelectedTag(' + tagId +
-                         ')" class="inline-block bg-red-500 text-white px-2 py-1 rounded-md">X</button>';
-                     selectedTagsContainer.appendChild(tagContainer);
-                     selectedTags.push(tagId);
-                 }
-             }
-         }
-
-         // Mettez à jour la valeur du champ de saisie caché avec les tags sélectionnés
-         selectedTagsInput.value = selectedTags.join(',');
-     }
-
-
-     function removeSelectedTag(tagId) {
-         var selectedTag = document.getElementById('selectedTag_' + tagId);
-         if (selectedTag) {
-             selectedTag.parentNode.removeChild(selectedTag);
-         }
-     }
-     </script>
  </body>
 
  </html>
