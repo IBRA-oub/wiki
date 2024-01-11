@@ -20,7 +20,7 @@ class WikiImp extends DataBase implements WikiInterface{
         $idUser = $wiki->getIdUser();
 
         $sql = "INSERT INTO wiki (title, content, summarize, dateCreated, dateModified, archived, pictureWiki, idCategory, idUser) 
-                VALUES (:title, :content, :summarize, :dateCreated, :dateModified, 0, :pictureWiki, :idCategory, :idUser);";
+                VALUES (:title, :content, :summarize, :dateCreated, :dateModified, '0', :pictureWiki, :idCategory, :idUser);";
 
         $stmt = $pdo->prepare($sql);
 
@@ -50,7 +50,16 @@ class WikiImp extends DataBase implements WikiInterface{
     }
     
     }
-    public function displayWiki(){}
+    public function displayWiki(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki";
+        
+        $data = $pdo->query($sql);
+        $wikiData = $data->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $wikiData;
+    }
     public function updateWiki(Wiki $wiki){}
     public function deleteWiki($id){}
     public function fetchWiki($id){}
