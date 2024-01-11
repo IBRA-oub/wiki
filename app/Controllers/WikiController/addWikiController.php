@@ -46,13 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     try {
         // Créer une instance de Wiki avec les données du formulaire
         $wiki = new Wiki($title, $content, $summarize, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'),$pictureWiki, $idCategory, $idUser);
-        echo'<pre>';
-        print_r($wiki);
-        echo'</pre>';
-        
-        echo'<pre>';
-        print_r($tagIds);
-        echo'</pre>';
+       ;
         // Insérer le wiki avec ses tags
         $wikiService = new WikiImp();
         $wikiService->addWiki($wiki, $tagIds);

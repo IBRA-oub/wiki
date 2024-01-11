@@ -181,4 +181,16 @@ class WikiImp extends DataBase implements WikiInterface{
 
         return  $wikiNonAdminData;
     }
+
+
+    public function displayLastWiki(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki ORDER BY dateCreated DESC LIMIT 3";
+        
+        $data = $pdo->query($sql);
+        $wikidisplayLast = $data->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $wikidisplayLast;
+    }
 }

@@ -11,5 +11,6 @@ public function ArchivedWiki($id);
 public function dispalyNonArchivedWiki();
 public function NonArchivedWiki($id);
 public function dispalyArchivedWiki();
+public function displayLastWiki();
 }
 ?>
