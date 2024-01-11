@@ -69,6 +69,17 @@ class CategoryImp extends DataBase implements CategoryInterface{
         $DeletCategory= $stmt->execute();
         return  $DeletCategory;
     }
+
+    public function displayLastCategory(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM category ORDER BY idCategory DESC LIMIT 4;";
+        
+        $data = $pdo->query($sql);
+        $categoryData = $data->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $categoryData;
+    }
     public function fetchCategory($id){
         $pdo = $this->connection();
 

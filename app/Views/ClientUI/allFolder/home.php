@@ -1,3 +1,6 @@
+<?php
+require_once'../../../Controllers/CategoryController/displayLastCategoryController.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +20,7 @@
     <!-- navbar -->
     <nav class="h-12 relative px-4 py-4 flex justify-between items-center bg-white">
         <div class="w-[160px] ">
-            <img class="w-[40%]" src='../../../public/images/LogoDescktop.png' alt="LogoCarrefour">
+            <img class="w-[40%]" src='../../../../public/images/LogoDescktop.png' alt="LogoCarrefour">
         </div>
         <div class="lg:hidden flex absolute right-0 ">
             <span>
@@ -76,7 +79,7 @@
             <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-red-600 font-bold  rounded-xl transition duration-200"
                 href="../login.php">
                 <span class="flex items-center">
-                    <img class="w-5 mr-2" src='../../../public/images/login.png' alt="Login Image">
+                    <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                     <span>Sign In</span>
                 </span>
             </a>
@@ -84,7 +87,7 @@
             <a class="hidden lg:inline-block py-2 px-6   text-sm text-blue-600 font-bold rounded-xl transition duration-200"
                 href="../signUp.php">
                 <span class="flex items-center">
-                    <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                    <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                     <span>Sign Up</span>
                 </span>
             </a>
@@ -102,7 +105,7 @@
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <div class="w-[90%]  ">
-                    <img class="w-[20%]" src=' ../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                    <img class="w-[20%]" src='../../../../public/images/logoMobile.png ' alt="LogoCarrefour">
                 </div>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -135,7 +138,7 @@
                     <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
                         href="#">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src=' ../../../public/images/login.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                             <span>Sign In</span>
                         </span>
                     </a>
@@ -143,7 +146,7 @@
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
                         href="#">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                             <span>Sign Up</span>
                         </span>
                     </a>
@@ -248,13 +251,18 @@
             <!-- sub-main posts -->
             <div class="w-full md:w-4/7">
                 <!-- post 1 -->
+                <?php
+                foreach($categoryData as $catData){
+                ?>
                 <div class="rounded w-full flex flex-col md:flex-row mb-10">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                        class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
+                    <?php $cheminImage = $catData['pictureCategory'];
+                    echo "<img src='$cheminImage' class='block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0' />"
+                    ?>
                     <div class="bg-white rounded px-4">
-                        <span class="text-green-700 text-sm hidden md:block"> Gadgets </span>
+                        <span class="text-green-700 text-sm hidden md:block"> <?php echo $catData['nameCategory']?>
+                        </span>
                         <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
-                            At every tiled on ye defer do. No attention suspected oh difficult.
+                            <?php echo $catData['description'] ?>
                             <a href="#" class="inline-block px-4  mt-2 rounded-md bg-green-700 text-gray-100 text-base">
                                 show Wiki
                             </a>
@@ -263,54 +271,13 @@
 
                     </div>
                 </div>
+                <?php
+                }
+                ?>
 
-                <!-- post 2 -->
-                <div class="rounded w-full flex flex-col md:flex-row mb-10">
-                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                        class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
-                    <div class="bg-white rounded px-4">
-                        <span class="text-green-700 text-sm hidden md:block"> Bitcoin </span>
-                        <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
-                            Fond his say old meet cold find come whom. The sir park sake bred.
-                            <a href="#" class="inline-block px-4  mt-2 rounded-md bg-green-700 text-gray-100 text-base">
-                                show Wiki
-                            </a>
-                        </div>
 
-                    </div>
-                </div>
-                <!-- post 3 -->
-                <div class="rounded w-full flex flex-col md:flex-row mb-10">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                        class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
-                    <div class="bg-white rounded px-4">
-                        <span class="text-green-700 text-sm hidden md:block"> Insights </span>
-                        <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
-                            Advice me cousin an spring of needed. Tell use paid law ever yet new.
-                            <a href="#" class="inline-block px-4  mt-2 rounded-md bg-green-700 text-gray-100 text-base">
-                                show Wiki
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- post 4 -->
-                <div class="rounded w-full flex flex-col md:flex-row mb-10">
-                    <img src="https://images.unsplash.com/photo-1489844097929-c8d5b91c456e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                        class="block md:hidden lg:block rounded-md h-64 md:h-32 m-4 md:m-0" />
-                    <div class="bg-white rounded px-4">
-                        <span class="text-green-700 text-sm hidden md:block"> Cryptocurrency </span>
-                        <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
-                            Advice me cousin an spring of needed. Tell use paid law ever yet new.
-                            <a href="#" class="inline-block px-4  mt-2 rounded-md bg-green-700 text-gray-100 text-base">
-                                show Wiki
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <a href="#" class="bg-green-700 text-white px-10 py-4 rounded ml-[20%] my-22">Show more Categories
+                <a href="wikis.php" class="bg-green-700 text-white px-10 py-4 rounded ml-[20%] my-22">Show more
+                    Categories
                     -></a>
 
             </div>
@@ -326,7 +293,7 @@
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
                     <div class="text-teal-600">
-                        <img src='../../../public/images/LogoDescktop.png' alt="">
+                        <img src='../../../../public/images/LogoDescktop.png' alt="">
                     </div>
 
                     <p class="mt-4 max-w-xs text-gray-500">
@@ -495,7 +462,7 @@
 
 
 
-    <script src="../../../public/js/main.js"></script>
+    <script src="../../../../public/js/main.js"></script>
 </body>
 
 </html>
