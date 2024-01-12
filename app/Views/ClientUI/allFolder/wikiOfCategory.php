@@ -1,6 +1,6 @@
 <?php
-require_once'../../../Controllers/WikiController/displayNonArchivedWikiController.php';
-require_once'../../../Controllers/CategoryController/displayCategoryController.php';
+require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -177,14 +177,14 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
 
             <!-- main post 1 -->
             <?php
-            foreach ($WikiDatas as $WikiData){
+            foreach ($WikiCategoryDataFetch as $WikiCatData){
             ?>
             <div class="mb-4 lg:mb-10 p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
                 <?php 
-                $cheminImage = $WikiData['pictureWiki'];
+                $cheminImage = $WikiCatData['pictureWiki'];
                echo" <img src='$cheminImage' class='rounded-md object-cover w-full h-64'>"
                 ?>
-                <?php
+                <!-- <?php
                 foreach($categoryData as $catData){
                 // condition pour affichier le categorie associe a le wiki
                 if ($catData['idCategory'] == $WikiData['idCategory']) {
@@ -195,13 +195,13 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                 <?php
                             }
                         }
-                        ?>
+                        ?> -->
                 <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
-                    <?php echo $WikiData['title'] ?> </h1>
+                    <?php echo $WikiCatData['title'] ?> </h1>
                 <p class="text-gray-600 mb-4">
-                    <?php echo $WikiData['summarize'] ?>
+                    <?php echo $WikiCatData['summarize'] ?>
                 </p>
-                <a href="wikiDetaille.php?idWiki=<?= $WikiData['idWiki'];?>"
+                <a href="wikiDetaille.php?idWiki=<?= $WikiCatData['idWiki'];?>"
                     class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
                     Read more
                 </a>

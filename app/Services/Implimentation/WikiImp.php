@@ -208,4 +208,18 @@ class WikiImp extends DataBase implements WikiInterface{
 
         return  $fetchWiki;
     }
+
+    public function fetchWikiCategory($idCategory){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki WHERE idCategory = :idCategory ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':idCategory',$idCategory);
+        
+        $stmt->execute();
+        $fetchWikiCategory = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $fetchWikiCategory;
+    }
 }

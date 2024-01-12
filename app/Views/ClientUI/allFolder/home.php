@@ -199,7 +199,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                 <p class="text-gray-600 mb-4">
                     <?php echo $WikiData['summarize'] ?>
                 </p>
-                <a href="../../../Views/ClientUI/allFolder/wikiDetaille.php?idWiki=<?= $WikiData['idWiki'];?>"
+                <a href="wikiDetaille.php?idWiki=<?= $WikiData['idWiki'];?>"
                     class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
                     Read more
                 </a>
@@ -238,7 +238,8 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                         </span>
                         <div class="md:mt-0 text-gray-800 font-semibold text-xl mb-2">
                             <?php echo $catData['description'] ?>
-                            <a href="#" class="inline-block px-4  mt-2 rounded-md bg-green-700 text-gray-100 text-base">
+                            <a href="wikiOfCategory.php?idCategory=<?=$catData['idCategory'];?>"
+                                class="inline-block px-4  mt-2 rounded-md bg-green-700 text-gray-100 text-base">
                                 show Wiki
                             </a>
                         </div>
@@ -251,7 +252,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                 ?>
 
 
-                <a href="categories.php" class="bg-green-700 text-white px-10 py-4 rounded ml-[20%] my-22">Show more
+                <a href=" categories.php" class="bg-green-700 text-white px-10 py-4 rounded ml-[20%] my-22">Show more
                     Categories
                     -></a>
 
@@ -272,7 +273,8 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                     </div>
 
                     <p class="mt-4 max-w-xs text-gray-500">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae
+                        nam
                         molestias.
                     </p>
 
@@ -349,23 +351,28 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
 
                         <ul class="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company
+                                    Review </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts
+                                    Review </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO
+                                    Optimisation </a>
                             </li>
                         </ul>
                     </div>
@@ -379,11 +386,13 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts
+                                    Review </a>
                             </li>
                         </ul>
                     </div>
@@ -401,7 +410,8 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -411,19 +421,23 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
 
                         <ul class="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns
+                                    Policy </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring Statistics
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring
+                                    Statistics
                                 </a>
                             </li>
                         </ul>

@@ -192,7 +192,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                         <p class="md:text-lg text-gray-500 text-base"> <?php echo $catData['description']?></p>
                         <p class="text-xl font-black text-gray-800">
 
-                            <a href="#"
+                            <a href="wikiOfCategory.php?idCategory=<?=$catData['idCategory'];?>"
                                 class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
                                 Read Wiki
                             </a>

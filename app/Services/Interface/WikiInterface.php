@@ -14,5 +14,6 @@ public function dispalyArchivedWiki();
 public function displayLastWiki();
 
 public function fetchWikiId($idWiki);
+public function fetchWikiCategory($idCategory);
 }
 ?>
