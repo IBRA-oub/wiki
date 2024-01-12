@@ -46,7 +46,7 @@ require_once'../../../Controllers/WikiController/countWikiController.php';
                     </svg>
                 </div>
                 <div>
-                    <span class="block text-2xl font-bold"> <?php echo $countCategoryData['count'] ?></span>
+                    <span class="block text-2xl font-bold"> <?php echo $countCategoryData['count']; ?></span>
                     <span class="block text-gray-500">Categories</span>
                 </div>
             </div>
@@ -56,7 +56,7 @@ require_once'../../../Controllers/WikiController/countWikiController.php';
                     <img src="../../../../public/images/etiquette.png" alt="">
                 </div>
                 <div>
-                    <span class="block text-2xl font-bold"><?php echo $countTagData['count']?></span>
+                    <span class="block text-2xl font-bold"><?php echo $countTagData['count']; ?></span>
                     <span class="block text-gray-500">Tags</span>
                 </div>
             </div>
@@ -69,7 +69,7 @@ require_once'../../../Controllers/WikiController/countWikiController.php';
                     </svg>
                 </div>
                 <div>
-                    <span class="inline-block text-2xl font-bold"><?php echo $countUserData['count']?></span>
+                    <span class="inline-block text-2xl font-bold"><?php echo $countUserData['count']; ?></span>
                     <span class="block text-gray-500">Author</span>
                 </div>
             </div>
@@ -82,7 +82,7 @@ require_once'../../../Controllers/WikiController/countWikiController.php';
                     </svg>
                 </div>
                 <div>
-                    <span class="block text-2xl font-bold"><?php echo $countWikiData['count']?></span>
+                    <span class="block text-2xl font-bold"><?php echo $countWikiData['count'];?></span>
                     <span class="block text-gray-500">wikis</span>
                 </div>
             </div>
