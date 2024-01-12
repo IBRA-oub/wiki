@@ -64,8 +64,7 @@
                              <span class="ml-2 text-gray-700"><?= $TagData['nameTag'] ?></span>
                          </label>
                          <?php endforeach; ?>
-                         <button type="button" onclick="addSelectedTags()"
-                             class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Ajouter Tags</button>
+
                      </div>
                  </div>
                  <!-- 

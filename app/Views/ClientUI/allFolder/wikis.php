@@ -1,3 +1,7 @@
+<?php
+require_once'../../../Controllers/WikiController/displayNonArchivedWikiController.php';
+require_once'../../../Controllers/CategoryController/displayCategoryController.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +21,7 @@
     <!-- navbar -->
     <nav class="h-12 relative px-4 py-4 flex justify-between items-center bg-white">
         <div class="w-[160px] ">
-            <img class="w-[40%]" src='../../../public/images/LogoDescktop.png' alt="LogoCarrefour">
+            <img class="w-[40%]" src='../../../../public/images/LogoDescktop.png' alt="LogoCarrefour">
         </div>
         <div class="lg:hidden flex absolute right-0 ">
             <span>
@@ -76,7 +80,7 @@
             <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-red-600 font-bold  rounded-xl transition duration-200"
                 href="#">
                 <span class="flex items-center">
-                    <img class="w-5 mr-2" src='../../../public/images/login.png' alt="Login Image">
+                    <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                     <span>Sign In</span>
                 </span>
             </a>
@@ -84,7 +88,7 @@
             <a class="hidden lg:inline-block py-2 px-6   text-sm text-blue-600 font-bold rounded-xl transition duration-200"
                 href="#">
                 <span class="flex items-center">
-                    <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                    <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                     <span>Sign Up</span>
                 </span>
             </a>
@@ -172,70 +176,40 @@
         <div class="w-full md:w-3/3 p-4 bg-white mb-4 md:mb-0 md:mr-2 shadow-lg rounded-md">
 
             <!-- main post 1 -->
+            <?php
+            foreach ($WikiDatas as $WikiData){
+            ?>
             <div class="mb-4 lg:mb-10 p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
-                <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                    class="rounded-md object-cover w-full h-64">
-                <span class="text-green-700 text-sm hidden md:block mt-4"> Technology </span>
-                <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
-                    Ignorant branched humanity led now marianne too.
-                </h1>
-                <p class="text-gray-600 mb-4">
-                    Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons yet
-                    understood
-                    decisively boy law she. Answer him easily are its barton little. Oh no though mother be things
-                    simple
-                    itself.
-                    Oh be me, sure wise sons, no. Piqued ye of am spirit regret. Stimulated discretion impossible
-                    admiration in particular conviction up.
-                </p>
-                <a href="#" class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
-                    Read more
-                </a>
-            </div>
+                <?php 
+                $cheminImage = $WikiData['pictureWiki'];
+               echo" <img src='$cheminImage' class='rounded-md object-cover w-full h-64'>"
+                ?>
+                <?php
+                foreach($categoryData as $catData){
+                // condition pour affichier le categorie associe a le wiki
+                if ($catData['idCategory'] == $WikiData['idCategory']) {
+                ?>
 
-            <!-- main post 2 -->
-            <div class="mb-4 lg:mb-10 p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
-                <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                    class="rounded-md object-cover w-full h-64">
-                <span class="text-green-700 text-sm hidden md:block mt-4"> Technology </span>
+                <span class="text-green-700 text-sm hidden md:block mt-4">
+                    <?php echo $catData['nameCategory']?> </span>
+                <?php
+                            }
+                        }
+                        ?>
                 <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
-                    Ignorant branched humanity led now marianne too.
-                </h1>
+                    <?php echo $WikiData['title'] ?> </h1>
                 <p class="text-gray-600 mb-4">
-                    Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons yet
-                    understood
-                    decisively boy law she. Answer him easily are its barton little. Oh no though mother be things
-                    simple
-                    itself.
-                    Oh be me, sure wise sons, no. Piqued ye of am spirit regret. Stimulated discretion impossible
-                    admiration in particular conviction up.
+                    <?php echo $WikiData['summarize'] ?>
                 </p>
                 <a href="#" class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
                     Read more
                 </a>
             </div>
+            <?php
+            }
+            ?>
 
-            <!-- main post 3 -->
-            <div class="mb-4 lg:mb-10 p-4 lg:p-0 w-full md:w-4/7 relative rounded block">
-                <img src="https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
-                    class="rounded-md object-cover w-full h-64">
-                <span class="text-green-700 text-sm hidden md:block mt-4"> Technology </span>
-                <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
-                    Ignorant branched humanity led now marianne too.
-                </h1>
-                <p class="text-gray-600 mb-4">
-                    Necessary ye contented newspaper zealously breakfast he prevailed. Melancholy middletons yet
-                    understood
-                    decisively boy law she. Answer him easily are its barton little. Oh no though mother be things
-                    simple
-                    itself.
-                    Oh be me, sure wise sons, no. Piqued ye of am spirit regret. Stimulated discretion impossible
-                    admiration in particular conviction up.
-                </p>
-                <a href="#" class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
-                    Read more
-                </a>
-            </div>
+
 
 
 
@@ -248,7 +222,7 @@
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
                     <div class="text-teal-600">
-                        <img src='../../../public/images/LogoDescktop.png' alt="">
+                        <img src=' ../../../../public/images/LogoDescktop.png' alt="">
                     </div>
 
                     <p class="mt-4 max-w-xs text-gray-500">
@@ -418,7 +392,7 @@
 
 
 
-    <script src="../../../public/js/main.js"></script>
+    <script src="../../../../public/js/main.js"></script>
 </body>
 
 </html>

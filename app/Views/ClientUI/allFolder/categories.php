@@ -1,3 +1,6 @@
+<?php
+require_once'../../../Controllers/CategoryController/displayCategoryController.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +20,7 @@
     <!-- navbar -->
     <nav class="h-12 relative px-4 py-4 flex justify-between items-center bg-white">
         <div class="w-[160px] ">
-            <img class="w-[40%]" src='../../../public/images/LogoDescktop.png' alt="LogoCarrefour">
+            <img class="w-[40%]" src='../../../../public/images/LogoDescktop.png' alt="LogoCarrefour">
         </div>
         <div class="lg:hidden flex absolute right-0 ">
             <span>
@@ -72,17 +75,17 @@
 
             <!-- search bar end -->
             <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-red-600 font-bold  rounded-xl transition duration-200"
-                href="#">
+                href="../../login.php">
                 <span class="flex items-center">
-                    <img class="w-5 mr-2" src='../../../public/images/login.png' alt="Login Image">
+                    <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                     <span>Sign In</span>
                 </span>
             </a>
 
             <a class="hidden lg:inline-block py-2 px-6   text-sm text-blue-600 font-bold rounded-xl transition duration-200"
-                href="#">
+                href="../../signUp.php">
                 <span class="flex items-center">
-                    <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                    <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                     <span>Sign Up</span>
                 </span>
             </a>
@@ -131,17 +134,17 @@
                 <div class="pt-6">
 
                     <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                        href="#">
+                        href="../../login.php">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src=' ../../../public/images/login.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                             <span>Sign In</span>
                         </span>
                     </a>
 
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
-                        href="#">
+                        href="../../signUp.php">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                             <span>Sign Up</span>
                         </span>
                     </a>
@@ -167,157 +170,41 @@
 
         <!-- Section de gauche  -->
 
-        <div class="w-full md:w-1/2 p-4 bg-white mb-4 md:mb-0 md:mr-2 shadow-lg rounded-md">
+        <div class="w-full md:w-2/2 p-4 bg-white mb-4 md:mb-0 md:mr-2 shadow-lg rounded-md">
 
             <!--first categories  -->
+            <?php
+            foreach($categoryData as $catData){
+            ?>
             <div class="flex flex-col justify-center my-6">
                 <div
                     class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
                     <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                        <img src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="tailwind logo" class="rounded-xl" />
+                        <?php
+                        $cheminImage = $catData['pictureCategory'];
+                       echo "<img src='$cheminImage' alt='tailwind logo' class='rounded-xl' />"
+                        ?>
                     </div>
                     <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
 
-                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-                        <p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the
-                            country's sheer
-                            size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
+                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">
+                            <?php echo $catData['nameCategory']?></h3>
+                        <p class="md:text-lg text-gray-500 text-base"> <?php echo $catData['description']?></p>
                         <p class="text-xl font-black text-gray-800">
 
                             <a href="#"
                                 class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
-                                Read more
+                                Read Wiki
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
-            <!--first categories  -->
-            <div class="flex flex-col justify-center my-6 ">
-                <div
-                    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                    <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                        <img src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="tailwind logo" class="rounded-xl" />
-                    </div>
-                    <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+            <?php
+            }
+            ?>
 
-                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-                        <p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the
-                            country's sheer
-                            size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
-                        <p class="text-xl font-black text-gray-800">
 
-                            <a href="#"
-                                class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
-                                Read more
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--first categories  -->
-            <div class="flex flex-col justify-center  my-6">
-                <div
-                    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                    <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                        <img src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="tailwind logo" class="rounded-xl" />
-                    </div>
-                    <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-
-                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-                        <p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the
-                            country's sheer
-                            size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
-                        <p class="text-xl font-black text-gray-800">
-
-                            <a href="#"
-                                class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
-                                Read more
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section de gauche -->
-
-        <div class="w-full md:w-1/2 p-4 bg-white mb-4 md:mb-0 md:mr-2 shadow-lg rounded-md">
-            <!--first categories  -->
-            <div class="flex flex-col justify-center my-6">
-                <div
-                    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                    <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                        <img src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="tailwind logo" class="rounded-xl" />
-                    </div>
-                    <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-
-                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-                        <p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the
-                            country's sheer
-                            size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
-                        <p class="text-xl font-black text-gray-800">
-
-                            <a href="#"
-                                class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
-                                Read more
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--first categories  -->
-            <div class="flex flex-col justify-center my-6">
-                <div
-                    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                    <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                        <img src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="tailwind logo" class="rounded-xl" />
-                    </div>
-                    <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-
-                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-                        <p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the
-                            country's sheer
-                            size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
-                        <p class="text-xl font-black text-gray-800">
-
-                            <a href="#"
-                                class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
-                                Read more
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--first categories  -->
-            <div class="flex flex-col justify-center my-6">
-                <div
-                    class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                    <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                        <img src="https://images.pexels.com/photos/4381392/pexels-photo-4381392.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            alt="tailwind logo" class="rounded-xl" />
-                    </div>
-                    <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-
-                        <h3 class="font-black text-gray-800 md:text-3xl text-xl">The Majestic and Wonderful Bahamas</h3>
-                        <p class="md:text-lg text-gray-500 text-base">The best kept secret of The Bahamas is the
-                            country's sheer
-                            size and diversity. With 16 major islands, The Bahamas is an unmatched destination</p>
-                        <p class="text-xl font-black text-gray-800">
-
-                            <a href="#"
-                                class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100 text-sm">
-                                Read more
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -329,11 +216,12 @@
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
                     <div class="text-teal-600">
-                        <img src='../../../public/images/LogoDescktop.png' alt="">
+                        <img src='../../../../public/images/LogoDescktop.png' alt="">
                     </div>
 
                     <p class="mt-4 max-w-xs text-gray-500">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae
+                        nam
                         molestias.
                     </p>
 
@@ -410,23 +298,28 @@
 
                         <ul class="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company
+                                    Review </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts
+                                    Review </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO
+                                    Optimisation </a>
                             </li>
                         </ul>
                     </div>
@@ -440,11 +333,13 @@
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts
+                                    Review </a>
                             </li>
                         </ul>
                     </div>
@@ -462,7 +357,8 @@
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -472,19 +368,23 @@
 
                         <ul class="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns
+                                    Policy </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring Statistics </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring
+                                    Statistics </a>
                             </li>
                         </ul>
                     </div>
@@ -496,7 +396,7 @@
     </footer>
     <!-- footer end -->
 
-    <script src="../../../public/js/main.js"></script>
+    <script src="../../../../public/js/main.js"></script>
 </body>
 
 </html>

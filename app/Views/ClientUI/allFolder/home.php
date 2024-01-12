@@ -78,7 +78,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
 
             <!-- search bar end -->
             <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-red-600 font-bold  rounded-xl transition duration-200"
-                href="../login.php">
+                href="../../login.php">
                 <span class="flex items-center">
                     <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                     <span>Sign In</span>
@@ -86,7 +86,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
             </a>
 
             <a class="hidden lg:inline-block py-2 px-6   text-sm text-blue-600 font-bold rounded-xl transition duration-200"
-                href="../signUp.php">
+                href="../../signUp.php">
                 <span class="flex items-center">
                     <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                     <span>Sign Up</span>
