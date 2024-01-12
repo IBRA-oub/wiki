@@ -199,7 +199,8 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                 <p class="text-gray-600 mb-4">
                     <?php echo $WikiData['summarize'] ?>
                 </p>
-                <a href="#" class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
+                <a href="../../../Views/ClientUI/allFolder/wikiDetaille.php?idWiki=<?= $WikiData['idWiki'];?>"
+                    class="inline-block px-6 py-3 mt-2 rounded-md bg-green-700 text-gray-100">
                     Read more
                 </a>
             </div>

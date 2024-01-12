@@ -53,7 +53,7 @@ class WikiImp extends DataBase implements WikiInterface{
     public function displayWiki(){
         $pdo = $this->connection();
 
-        $sql = "SELECT * FROM wiki";
+        $sql = "SELECT * FROM wiki WHERE archived = '0' ";
         
         $data = $pdo->query($sql);
         $wikiData = $data->fetchAll(PDO::FETCH_ASSOC);
@@ -192,5 +192,20 @@ class WikiImp extends DataBase implements WikiInterface{
         $wikidisplayLast = $data->fetchAll(PDO::FETCH_ASSOC);
 
         return  $wikidisplayLast;
+    }
+
+
+    public function fetchWikiId($idWiki){
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki WHERE idWiki = :idWiki ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':idWiki',$idWiki);
+        
+        $stmt->execute();
+        $fetchWiki = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return  $fetchWiki;
     }
 }
