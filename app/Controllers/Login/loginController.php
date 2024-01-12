@@ -7,7 +7,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     $username = $_POST['username'];
     $password = $_POST['password'];
+    
+     // Vérification si les champs sont vides
 
+        if (empty($username) || empty($password)) {
+            $_SESSION['error'] = 'Veuillez remplir tous les champs.';
+            header('location:../../Views/login.php');
+            exit();
+        }
+        
     $logincheck = new LoginImp();
     $row = $logincheck->fetch($username);
    
@@ -29,10 +37,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             
         }else{
-            echo '<qcript>alert("password invalid")</script>';
+            
+            $_SESSION['error'] = 'Mot de passe incorrect.';
+            header('location:../../Views/login.php');
+            exit();
         }
     }else{
-        echo '<qcript>alert("username invalid")</script>';
+       
+        $_SESSION['error'] = 'Nom d\'utilisateur incorrect.';
+        header('location:../../Views/login.php');
+        exit();
     }
     
 }

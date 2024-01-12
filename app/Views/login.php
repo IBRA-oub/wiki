@@ -63,6 +63,14 @@
                                     </button>
                                 </div>
                             </div>
+                            <?php
+                            session_start();
+                            
+                                if (isset($_SESSION['error'])) {
+                                    echo '<div class="text-red-500">' . $_SESSION['error'] . '</div>';
+                                    unset($_SESSION['error']); // Effacer le message après l'affichage
+                                }
+                                ?>
                         </form>
                         <p class="ml-20 mt-8">Need an account? <a href="signUp.php"
                                 class="text-blue-500 hover:text-blue-700 font-semibold">Create an

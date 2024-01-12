@@ -9,7 +9,7 @@ require_once(__DIR__.'../../../Services/Interface/TagInterface.php');
 require_once(__DIR__.'../../../Services/Implimentation/TagImp.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-     // Récupérer id de wiki a mese a jour
+     // Récupérer id de wiki a mise a jour
      $idWiki = $_POST['idWiki'];
     // Récupérer les données du formulaire
     $title = $_POST['title'];
