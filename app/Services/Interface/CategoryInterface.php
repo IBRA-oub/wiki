@@ -7,6 +7,7 @@ interface CategoryInterface
     public function deleteCategory($id);
     public function displayLastCategory();
     public function fetchCategory($id);
+    public function countCategory();
 }
  
 ?>

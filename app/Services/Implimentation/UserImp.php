@@ -1,7 +1,7 @@
 <?php
 
-require_once('../../config/DataBase.php');
-require_once('../../Models/User.php');
+require_once(__DIR__.'/../../config/DataBase.php');
+require_once(__DIR__.'/../../Models/User.php');
 require_once(dirname(dirname(__FILE__)) .'/Interface/UserInterface.php');
 
 class UserImp extends DataBase implements UserInterface{
@@ -42,6 +42,17 @@ class UserImp extends DataBase implements UserInterface{
         $fetchUser = $data->fetchAll(PDO::FETCH_ASSOC);
 
         return  $fetchUser;
+    }
+
+    public function countUser(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT count(*) AS count FROM user WHERE role = 'author'";
+        
+        $data = $pdo->query($sql);
+        $countUser = $data->fetch(PDO::FETCH_ASSOC);
+
+        return  $countUser;
     }
 }
 

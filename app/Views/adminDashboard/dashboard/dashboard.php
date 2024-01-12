@@ -1,6 +1,11 @@
 <?php
 
 require_once '../../sidebar.php';
+require_once'../../../Controllers/CategoryController/countCategoryController.php';
+require_once'../../../Controllers/TagController/countTagController.php';
+require_once'../../../Controllers/UserController/countUserController.php';
+require_once'../../../Controllers/WikiController/countWikiController.php';
+
 
 
 ?>
@@ -12,11 +17,11 @@ require_once '../../sidebar.php';
             <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
                 <span class="sr-only">User Menu</span>
                 <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
-                    <span class="font-semibold">Grace Simmons</span>
-                    <span class="text-sm text-gray-600">Lecturer</span>
+                    <span class="font-semibold">admin</span>
+                    <span class="text-sm text-gray-600">admin</span>
                 </div>
                 <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="user profile photo"
+                    <img src="../../../../public/images/utilisateur.png" alt="user profile photo"
                         class="h-full w-full object-cover">
                 </span>
             </button>
@@ -27,7 +32,7 @@ require_once '../../sidebar.php';
         <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
             <div class="mr-6">
                 <h1 class="text-4xl font-semibold mb-2">Dashboard</h1>
-                <h2 class="text-gray-600 ml-0.5">Mobile UX/UI Design course</h2>
+                <h2 class="text-gray-600 ml-0.5">Statistique </h2>
             </div>
 
         </div>
@@ -41,35 +46,31 @@ require_once '../../sidebar.php';
                     </svg>
                 </div>
                 <div>
-                    <span class="block text-2xl font-bold">62</span>
-                    <span class="block text-gray-500">Students</span>
+                    <span class="block text-2xl font-bold"> <?php echo $countCategoryData['count'] ?></span>
+                    <span class="block text-gray-500">Categories</span>
                 </div>
             </div>
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
                 <div
                     class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
+                    <img src="../../../../public/images/etiquette.png" alt="">
                 </div>
                 <div>
-                    <span class="block text-2xl font-bold">6.8</span>
-                    <span class="block text-gray-500">Average mark</span>
+                    <span class="block text-2xl font-bold"><?php echo $countTagData['count']?></span>
+                    <span class="block text-gray-500">Tags</span>
                 </div>
             </div>
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
                 <div
-                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
                     <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                 </div>
                 <div>
-                    <span class="inline-block text-2xl font-bold">9</span>
-                    <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span>
-                    <span class="block text-gray-500">Underperforming students</span>
+                    <span class="inline-block text-2xl font-bold"><?php echo $countUserData['count']?></span>
+                    <span class="block text-gray-500">Author</span>
                 </div>
             </div>
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -81,11 +82,12 @@ require_once '../../sidebar.php';
                     </svg>
                 </div>
                 <div>
-                    <span class="block text-2xl font-bold">83%</span>
-                    <span class="block text-gray-500">Finished homeworks</span>
+                    <span class="block text-2xl font-bold"><?php echo $countWikiData['count']?></span>
+                    <span class="block text-gray-500">wikis</span>
                 </div>
             </div>
         </section>
+
 
 
     </main>

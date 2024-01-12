@@ -93,6 +93,19 @@ class CategoryImp extends DataBase implements CategoryInterface{
 
         return  $fetchCategory;
     }
+
+    public function countCategory(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT count(*) AS count FROM category";
+        
+        $data = $pdo->query($sql);
+        $countCategory = $data->fetch(PDO::FETCH_ASSOC);
+
+        return  $countCategory;
+    }
+
+    
 }
 
 

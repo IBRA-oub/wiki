@@ -15,5 +15,7 @@ public function displayLastWiki();
 
 public function fetchWikiId($idWiki);
 public function fetchWikiCategory($idCategory);
+
+public function countWiki();
 }
 ?>

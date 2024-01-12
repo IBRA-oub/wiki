@@ -222,4 +222,15 @@ class WikiImp extends DataBase implements WikiInterface{
 
         return  $fetchWikiCategory;
     }
+
+    public function countWiki(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT count(*) AS count FROM wiki";
+        
+        $data = $pdo->query($sql);
+        $countWiki = $data->fetch(PDO::FETCH_ASSOC);
+
+        return  $countWiki;
+    }
 }

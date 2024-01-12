@@ -72,6 +72,17 @@ class TagImp extends DataBase implements TagInterface{
 
         return  $fetchTag;
     }
+
+    public function countTag(){
+        $pdo = $this->connection();
+
+        $sql = "SELECT count(*) AS count FROM tag";
+        
+        $data = $pdo->query($sql);
+        $countTag = $data->fetch(PDO::FETCH_ASSOC);
+
+        return  $countTag;
+    }
 }
 
 
