@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $serviceUser = new UserImp();
     $serviceUser->addUser($User);
     
-    header('location:../../Views/author/wiki/displayWiki.php');
+    header('location:../../Views/login.php');
     
     }catch(PDOException $e){
         

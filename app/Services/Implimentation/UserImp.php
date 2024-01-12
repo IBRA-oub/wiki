@@ -27,6 +27,7 @@ class UserImp extends DataBase implements UserInterface{
         $stmt->bindParam(':pictureUser',$pictureUser);
 
         $stmt->execute();
+        
     }
    
     public function fetchUser($id){
