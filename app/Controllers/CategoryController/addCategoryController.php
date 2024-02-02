@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../../Models/Category.php');
 require_once('../../Services/Interface/CategoryInterface.php');
 require_once('../../Services/Implimentation/CategoryImp.php');
@@ -22,6 +22,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $path = "../../../../public/uploads/";
     
     $pictureCategory = $path .  $nomImage ;
+    if (empty($nameCategory) || empty($description) ||  empty($nomImage)) {
+        $_SESSION['errorCat'] = "Veuillez remplir tous les champs du formulaire.";
+        header('location:../../Views/adminDashboard/category/addCategory.php');
+        exit();
+    }
 
     try{
         

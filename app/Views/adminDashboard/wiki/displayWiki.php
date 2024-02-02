@@ -1,4 +1,8 @@
 <?php
+session_start();
+if($_SESSION['role'] !== 'admin'){
+    header('Location:../../login.php ');
+}
 require_once '../../sidebar.php';
 require_once'../../../Controllers/WikiController/displayNonArchivedWikiController.php';
 ?>
@@ -101,6 +105,8 @@ require_once'../../../Controllers/WikiController/displayNonArchivedWikiControlle
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
+                        <th></th>
 
 
                     </tr>
@@ -113,17 +119,27 @@ require_once'../../../Controllers/WikiController/displayNonArchivedWikiControlle
 
                         <td data-label="id"
                             class="border-b before:content-['id']  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 sm:before:hidden sm:text-center block    text-right">
-                            <?php echo  $WikiData['idTag'] ?>
+                            <?php echo  $WikiData['idWiki'] ?>
                         </td>
                         <td data-label="title" class="border-b before:content-['title'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
                             <?php echo  $WikiData['title'] ?>
                         </td>
-                        <td data-label="sammurize" class="border-b before:content-['sammurize'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                        <td data-label="sammurize" class=" before:content-['sammurize'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                             text-right">
+                            <div class="h-8"></div>
+
+                        </td>
+                        <td data-label="sammurize" class="border-b  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
                             <?php echo  $WikiData['summarize'] ?>
                         </td>
-                        <td data-label="content" class="border-b before:content-['content'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                        <td data-label="content" class=" before:content-['content'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                             text-right">
+                            <div class="h-8"></div>
+
+                        </td>
+                        <td data-label="content" class="border-b before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
                             <?php echo $WikiData['content'] ?>
                         </td>
@@ -150,8 +166,8 @@ require_once'../../../Controllers/WikiController/displayNonArchivedWikiControlle
 
                             <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
                                 <a
-                                    href="../../../Controllers/WikiController/ArchivedWikiController.php?idWiki=<?= $WikiData['idWiki'];;?>">
-                                    <i class="fa-light fa-box-archive"></i></a>
+                                    href="../../../Controllers/WikiController/ArchivedWikiController.php?idWiki=<?= $WikiData['idWiki'];?>">
+                                    <i class="fa-solid fa-box-archive"></i></a>
 
                             </button>
 

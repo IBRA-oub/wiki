@@ -1,6 +1,17 @@
 <?php
+session_start();
+
+if($_SESSION['role'] !== 'admin'){
+    header('Location:../../login.php ');
+}
+
 require_once '../../sidebar.php';
 require_once'../../../Controllers/CategoryController/displayCategoryController.php';
+
+
+
+
+
 ?>
 
 <!--===========Content===========-->
@@ -27,7 +38,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
         <!-- ========== table Banks-desktop ======== -->
 
         <div class="hidden md:block  rounded-lg overflow-hidden mt-10">
-            <table class=" 
+            <table class="  
            w-full   " id="table1">
                 <thead class="  sm:w-full">
                     <tr class="bg-green-700 text-white h-[60px]">
@@ -63,7 +74,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                                 ?>
                             </div>
                         </td>
-                        <td class=" sm:text-center text-right">
+                        <td class="  sm:text-center text-right">
                             <button class="bg-green-800 text-white w-[35px] h-[35px] rounded-md">
                                 <a href="updateCategory.php?idCategory=<?= $CatData['idCategory'];?>">
                                     <i class="fa-solid fa-pen " style="color:#1D2B53"></i></a>
@@ -90,9 +101,10 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
         </div>
         <!-- ========== table Banks-mobile ======== -->
         <div class="block sm:hidden rounded-lg overflow-hidden mt-10">
-            <table class=" block w-full  border-2 sm:border-0  " id="table2">
+            <table class=" block sm:hidden w-full  border-2 sm:border-0  " id="table2">
                 <thead class="hidden">
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -116,8 +128,12 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                              text-right">
                             <?php echo $CatData['nameCategory'] ?>
                         </td>
-                        <td data-label="Description" class="border-b before:content-['Description'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
-                             text-right">
+                        <td data-label="Description" class=" before:content-['Description'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                             text-right ">
+                            <div class="h-10"></div>
+                        </td>
+                        <td class="border-b  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                             text-right ">
                             <?php echo  $CatData['description'] ?>
                         </td>
                         <td data-label="picture" class="border-b before:content-['picture'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
@@ -132,15 +148,16 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
 
                         <td data-label="ACtion"
                             class="border-b before:content-['action'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2  sm:before:hidden  sm:text-center block    text-right">
-                            <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a href="updateArticle.php?Article_ID=<?= $ArtiData ['Article_ID'];?>">
-                                    <i class="fa-solid fa-pen"></i></a> -->
+                            <button class="bg-green-800 text-white w-[35px] h-[35px] rounded-md">
+                                <a href="updateCategory.php?idCategory=<?=$CatData['idCategory'];?>">
+                                    <i class="fa-solid fa-pen " style="color:#1D2B53"></i>
+                                </a>
 
                             </button>
-                            <button class="bg-slate-900 text-white w-[35px] h-[35px] rounded-md">
-                                <!-- <a
-                                    href="../../Controllers/ArticleController/DeleteArticleController.php?Article_ID=<?= $ArtiData ['Article_ID'] ;?>"><i
-                                        class="fa-solid fa-trash"></i></a> -->
+                            <button class="bg-green-800 text-white w-[35px] h-[35px] rounded-md">
+                                <a
+                                    href="../../../Controllers/CategoryController/deleteCategoryController.php?idCategory=<?=$CatData['idCategory'] ;?>">
+                                    <i class="fa-solid fa-trash " style="color:#1D2B53"></i></a>
 
                             </button>
 

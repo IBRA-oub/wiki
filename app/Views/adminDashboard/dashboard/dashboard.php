@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if($_SESSION['role'] !== 'admin'){
+    header('Location:../../login.php ');
+}
 require_once '../../sidebar.php';
 require_once'../../../Controllers/CategoryController/countCategoryController.php';
 require_once'../../../Controllers/TagController/countTagController.php';
@@ -15,8 +18,8 @@ require_once'../../../Controllers/WikiController/countWikiController.php';
 
         <div class="flex flex-shrink-0 items-center ml-auto">
             <button class="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
-                <span class="sr-only">User Menu</span>
-                <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
+
+                <div class=" md:flex md:flex-col md:items-end md:leading-tight">
                     <span class="font-semibold">admin</span>
                     <span class="text-sm text-gray-600">admin</span>
                 </div>

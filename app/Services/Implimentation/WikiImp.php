@@ -186,7 +186,7 @@ class WikiImp extends DataBase implements WikiInterface{
     public function displayLastWiki(){
         $pdo = $this->connection();
 
-        $sql = "SELECT * FROM wiki ORDER BY dateCreated DESC LIMIT 3";
+        $sql = "SELECT * FROM wiki WHERE archived = '0' ORDER BY dateCreated DESC LIMIT 3 ";
         
         $data = $pdo->query($sql);
         $wikidisplayLast = $data->fetchAll(PDO::FETCH_ASSOC);
@@ -208,6 +208,33 @@ class WikiImp extends DataBase implements WikiInterface{
 
         return  $fetchWiki;
     }
+    public function fetcTagId($idWiki){
+        $pdo = $this->connection();
+
+        $sql = "SELECT nameTag FROM Tag JOIN TagOfWiki ON Tag.idTag = TagOfWiki.idTag WHERE TagOfWiki.idWiki = :idWiki";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':idWiki',$idWiki);
+        
+        $stmt->execute();
+        $fetchtag = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $fetchtag;
+    }
+    public function fetcauthor($idWiki){
+        $pdo = $this->connection();
+
+        $sql = "SELECT fullName FROM user JOIN wiki ON user.idUser = wiki.idUser WHERE wiki.idWiki = :idWiki";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':idWiki',$idWiki);
+        
+        $stmt->execute();
+        $fetchUserName = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return  $fetchUserName;
+    }
+    
 
     public function fetchWikiCategory($idCategory){
         $pdo = $this->connection();
@@ -232,5 +259,23 @@ class WikiImp extends DataBase implements WikiInterface{
         $countWiki = $data->fetch(PDO::FETCH_ASSOC);
 
         return  $countWiki;
+    }
+
+    public function search($string){
+        $string = '%'.$string.'%';
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM wiki  WHERE title LIKE :string ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':string', $string);
+        
+        $stmt->execute();
+        
+        $fetchWiki = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // var_dump($fetchWiki);
+        // die();
+        return  $fetchWiki;
     }
 }

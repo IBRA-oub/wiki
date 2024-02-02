@@ -1,3 +1,9 @@
+<?php
+session_start();
+if($_SESSION['role'] !== 'admin'){
+    header('Location:../../login.php ');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +35,14 @@
                 <button
                     class="px-16 py-2 leading-5 text-black transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-gray-800 hover:text-white focus:outline-none focus:bg-gray-600">Save</button>
             </div>
+            <?php
+            
+
+            if (isset($_SESSION['error'])) {
+            echo '<div class="text-red-500">' . $_SESSION['error'] . '</div>';
+            unset($_SESSION['error']); // Effacer le message après l'affichage
+            }
+            ?>
         </form>
     </section>
 

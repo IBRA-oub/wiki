@@ -13,7 +13,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
    
     if(!$WikiCategoryDataFetch){
         
-        echo "<script> alert('Data not found');</script>";
+        echo "<script> alert('there is no wikis for this category');</script>";
+        // header("Location:../../ClientUI/allFolder/home.php");
 
     }
 }

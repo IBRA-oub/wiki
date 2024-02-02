@@ -26,8 +26,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
            
             $_SESSION['idUser'] = $row['idUser'];
+            $_SESSION['role'] = $row['role'];
             
-            if ( $row['role'] == "admin") {
+            if ($_SESSION['role'] == "admin") {
                 header('location:../../Views/adminDashboard/dashboard/dashboard.php');
                 exit();
             } else {

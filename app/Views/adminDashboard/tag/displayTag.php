@@ -1,4 +1,8 @@
 <?php
+session_start();
+if($_SESSION['role'] !== 'admin'){
+    header('Location:../../login.php ');
+}
 require_once '../../sidebar.php';
 require_once'../../../Controllers/TagController/displayTagController.php';
 ?>
@@ -83,7 +87,6 @@ require_once'../../../Controllers/TagController/displayTagController.php';
                     <tr>
                         <th></th>
                         <th></th>
-
                         <th></th>
 
 
@@ -99,9 +102,9 @@ require_once'../../../Controllers/TagController/displayTagController.php';
                             class="border-b before:content-['id']  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 sm:before:hidden sm:text-center block    text-right">
                             <?php echo  $TagData['idTag'] ?>
                         </td>
-                        <td data-label="name Tag" class="border-b before:content-['name Tag'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
+                        <td data-label="name Tag" class="border-b before:content-['nameTag'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
-                            <?php echo  $TagData['nameTga'] ?>
+                            <?php echo  $TagData['nameTag'] ?>
                         </td>
 
                         <td data-label="ACtion"

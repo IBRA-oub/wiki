@@ -42,16 +42,10 @@
                                         <input type="text" id="fullName" name="fullName"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="John">
+                                        <p class="errorMessage text-red-500 text-sm mt-2"></p>
                                     </div>
                                 </div>
-                                <?php
-                            
-                            
-                                if (isset($_SESSION['error1'])) {
-                                    echo '<div class="text-red-500">' . $_SESSION['error1'] . '</div>';
-                                    unset($_SESSION['error1']); // Effacer le message après l'affichage
-                                }
-                                ?>
+
                                 <div class="w-1/2 px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">UserName</label>
                                     <div class="flex">
@@ -62,16 +56,10 @@
                                         <input type="text" name="username" id="username"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="Smith">
+                                        <p class="errorMessage text-red-500 text-sm mt-2"></p>
                                     </div>
                                 </div>
-                                <?php
-                           
-                            
-                                if (isset($_SESSION['error2'])) {
-                                    echo '<div class="text-red-500">' . $_SESSION['error2'] . '</div>';
-                                    unset($_SESSION['error2']); // Effacer le message après l'affichage
-                                }
-                                ?>
+
                             </div>
 
                             <div class="flex -mx-3">
@@ -84,17 +72,11 @@
                                         </div>
                                         <input type="email" name="email" id="email" class=" w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200
                                             outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
+                                        <p class="errorMessage text-red-500 text-sm mt-2"></p>
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                           
-                            
-                                if (isset($_SESSION['error3'])) {
-                                    echo '<div class="text-red-500">' . $_SESSION['error3'] . '</div>';
-                                    unset($_SESSION['error3']); // Effacer le message après l'affichage
-                                }
-                                ?>
+
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-12">
                                     <label for="" class="text-xs font-semibold px-1">Password</label>
@@ -106,18 +88,12 @@
                                         <input type="password" name="password" id="password"
                                             class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="************">
+                                        <p class="errorMessage text-red-500 text-sm mt-2"></p>
                                     </div>
                                 </div>
 
                             </div>
-                            <!-- <?php
-                           
-                            
-                        //    if (isset($_SESSION['error4'])) {
-                        //        echo '<div class="text-red-500">' . $_SESSION['error4'] . '</div>';
-                        //        unset($_SESSION['error4']); // Effacer le message après l'affichage
-                        //    }
-                           ?> -->
+
 
                             <div>
                                 <label class="block text-sm font-medium text-gray-400">
@@ -144,7 +120,9 @@
                                             PNG, JPG, GIF up to 10MB
                                         </p>
                                     </div>
+
                                 </div>
+                                <p class="errorMessage text-red-500 text-sm mt-2"></p>
                             </div>
                             <div class="flex my-4 -mx-3">
                                 <div class="w-full px-3 mb-5">

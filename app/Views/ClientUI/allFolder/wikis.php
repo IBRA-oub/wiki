@@ -14,7 +14,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/d0fb25e48c.js" crossorigin="anonymous"></script>
-    <title>HomePage</title>
+    <title>WIKIS</title>
 </head>
 
 <body class="bg-gray-100">
@@ -64,12 +64,9 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
             <!-- search bar -->
             <div class="relative mr-3 md:mr-0 hidden md:block">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clip-rule="evenodd"></path>
-                    </svg>
+                    <div class="w-[90%]  ">
+                        <img class="w-[20%]" src='../../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                    </div>
                 </div>
                 <input type="text" id="email-adress-icon"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
@@ -78,7 +75,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
 
             <!-- search bar end -->
             <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-red-600 font-bold  rounded-xl transition duration-200"
-                href="#">
+                href="../../login.php">
                 <span class="flex items-center">
                     <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                     <span>Sign In</span>
@@ -86,7 +83,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
             </a>
 
             <a class="hidden lg:inline-block py-2 px-6   text-sm text-blue-600 font-bold rounded-xl transition duration-200"
-                href="#">
+                href="../../signUp.php">
                 <span class="flex items-center">
                     <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                     <span>Sign Up</span>
@@ -106,7 +103,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <div class="w-[90%]  ">
-                    <img class="w-[20%]" src=' ../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                    <img class="w-[20%]" src='../../../../public/images/logoMobile.png ' alt="LogoCarrefour">
                 </div>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -137,17 +134,17 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                 <div class="pt-6">
 
                     <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                        href="#">
+                        href="../../login.php">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src=' ../../../public/images/login.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                             <span>Sign In</span>
                         </span>
                     </a>
 
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
-                        href="#">
+                        href="../../signUp.php">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                             <span>Sign Up</span>
                         </span>
                     </a>

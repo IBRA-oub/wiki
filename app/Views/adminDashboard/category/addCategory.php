@@ -1,3 +1,6 @@
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,10 +60,18 @@
                 </div>
             </div>
 
+
             <div class="flex justify-end mt-6">
                 <button
                     class="px-16 py-2 leading-5 text-black transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-gray-800 hover:text-white focus:outline-none focus:bg-gray-600">Save</button>
             </div>
+
+            <?php
+        if (isset($_SESSION['errorCat'])) {
+            echo '<div class="text-red-500">' . $_SESSION['errorCat'] . '</div>';
+            unset($_SESSION['errorCat']); // Effacer le message après l'affichage
+        }
+        ?>
         </form>
     </section>
 

@@ -2,6 +2,7 @@
 require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/d0fb25e48c.js" crossorigin="anonymous"></script>
-    <title>HomePage</title>
+    <title>Wiki Detaille</title>
 </head>
 
 <body class="bg-gray-100">
@@ -107,7 +108,7 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <div class="w-[90%]  ">
-                    <img class="w-[20%]" src=' ../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                    <img class="w-[20%]" src='../../../../public/images/logoMobile.png ' alt="LogoCarrefour">
                 </div>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -138,7 +139,7 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
                 <div class="pt-6">
 
                     <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                        href="#">
+                        href="../../login.php">
                         <span class="flex items-center">
                             <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                             <span>Sign In</span>
@@ -146,7 +147,7 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
                     </a>
 
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
-                        href="#">
+                        href="../../signUp.php">
                         <span class="flex items-center">
                             <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                             <span>Sign Up</span>
@@ -165,6 +166,7 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
 
     <!-- Contenu principal -->
     <div>
+
         <div class="block md:flex md:space-x-2 px-2 lg:p-0">
             <div class="mb-4 md:mb-0 w-full md:w-3/3 relative rounded inline-block" style="height: 24em;">
                 <div class="absolute left-0 bottom-0 w-full h-full z-10"
@@ -173,17 +175,35 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
               echo "<img src='$cheminImage' class='absolute left-0 top-0 w-full h-full rounded z-0 object-cover' />"
                 ?>
                 <div class="p-4 absolute bottom-20 left-20 z-20">
-
+                    <span class="text-sm font-semibold text-gray-100 leading-tight">
+                        <?php echo $userNameDataFetch['fullName']?> &ensp;|&ensp;
+                    </span>
+                    <span class="text-sm font-semibold text-gray-100 leading-tight">
+                        <?php echo $WikiDataFetch['dateCreated']?>
+                    </span>
                     <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
                         <?php echo $WikiDataFetch['title']?>
                     </h2>
+
+
                 </div>
             </div>
         </div>
-        <div class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
-            <p class="pb-6"><?php echo $WikiDataFetch['content']?></p>
+
+        <div class=" flex mt-6 ">
+            <?php foreach($tagsDatasFetch as $tagDataFetch){?>
+            <span class="ml-4 px-2 py-1 bg-gray-300 text-gray-800 rounded-full mr-2">
+                #<?php echo $tagDataFetch['nameTag']?>
+            </span>
+            <?php
+        }
+        ?>
         </div>
 
+        <div class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed w-1/2">
+
+            <p class="pb-6"><?php echo $WikiDataFetch['content']?></p>
+        </div>
     </div>
 
     <!-- contenu principal end -->
@@ -194,11 +214,12 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 <div>
                     <div class="text-teal-600">
-                        <img src=' ../../../../public/images/LogoDescktop.png' alt="">
+                        <img src='../../../../public/images/LogoDescktop.png' alt="">
                     </div>
 
                     <p class="mt-4 max-w-xs text-gray-500">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae
+                        nam
                         molestias.
                     </p>
 
@@ -275,23 +296,28 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
 
                         <ul class="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> 1on1 Coaching
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Company
+                                    Review </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts
+                                    Review </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> HR Consulting
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO Optimisation </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> SEO
+                                    Optimisation </a>
                             </li>
                         </ul>
                     </div>
@@ -305,11 +331,13 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Meet the Team
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts Review </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accounts
+                                    Review </a>
                             </li>
                         </ul>
                     </div>
@@ -327,7 +355,8 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Live Chat
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -337,19 +366,23 @@ require_once'../../../Controllers/WikiController/fetchWikiIdController.php';
 
                         <ul class="mt-6 space-y-4 text-sm">
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Accessibility
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns Policy </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Returns
+                                    Policy </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy </a>
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Refund Policy
+                                </a>
                             </li>
 
                             <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring Statistics
+                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hiring
+                                    Statistics
                                 </a>
                             </li>
                         </ul>

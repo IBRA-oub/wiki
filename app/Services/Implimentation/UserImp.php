@@ -39,10 +39,11 @@ class UserImp extends DataBase implements UserInterface{
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':idUser',$id);
         
-        $data = $pdo->query($sql);
-        $fetchUser = $data->fetchAll(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $fetchUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return  $fetchUser;
+        
     }
 
     public function countUser(){

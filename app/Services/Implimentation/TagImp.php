@@ -59,13 +59,13 @@ class TagImp extends DataBase implements TagInterface{
         $DeletTag= $stmt->execute();
         return  $DeletTag;
     }
-    public function fetchTag($id){
+    public function fetchTag($idTag){
         $pdo = $this->connection();
 
-        $sql = "SELECT * FROM tag WHERE idTag = :id";
+        $sql = "SELECT * FROM tag WHERE idTag = :idTag";
 
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id',$id);
+        $stmt->bindParam(':idTag',$idTag);
         
         $stmt->execute();
         $fetchTag = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -82,6 +82,20 @@ class TagImp extends DataBase implements TagInterface{
         $countTag = $data->fetch(PDO::FETCH_ASSOC);
 
         return  $countTag;
+    }
+    public function search($string){
+        $string = '%'.$string.'%';
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM tag WHERE nameTag LIKE :string ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':string', $string);
+        
+        $stmt->execute();
+        $fetchTag = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $fetchTag;
     }
 }
 

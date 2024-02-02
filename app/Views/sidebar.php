@@ -24,14 +24,19 @@
             <!-- ===== logo ===== -->
 
             <ul class="p-5 mt-10">
+                <li class="my-2">
+                    <a href="../dashboard/dashboard.php"
+                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black ">
+                        <h2 class="text-base sm:text-2xl font-bold sm:my-5 text-white">
+                            WIKI
+                        </h2>
+                    </a>
+                </li>
 
-                <h2 class="text-base sm:text-2xl font-bold sm:my-5 text-white">
-                    WIKI
-                </h2>
                 <li class="my-2">
                     <a href="../category/displayCategory.php"
-                        class="text-lg font-medium w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
-                        <img class="h-8 sm:w-8 w-full" src="../../../../public/images/categories.png" alt=""> <span
+                        class="text-lg font-medium  sm:w-[full] rounded-md h-[60px] text-white flex items-center p-5 group hover:text-black bg-indigo-200 bg-opacity-20">
+                        <img class="h-8 w-full sm:w-8 " src="../../../../public/images/categories.png" alt=""> <span
                             class="hidden sm:inline-block">Categories</span></a>
                 </li>
                 <li class="my-2">
@@ -61,7 +66,7 @@
 
 
 
-                <li> <a href="ClientUI/allFolder/home.php"
+                <li> <a href="../../ClientUI/allFolder/home.php"
                         class="bg-[#B5CB99] h-10 w-[50%] sm:w-full flex justify-center items-center rounded-lg text-[#0F1A19] font-bold m-auto mt-10"><button
                             type="button"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></i> <span
                                 class="hidden sm:inline-block">LOG

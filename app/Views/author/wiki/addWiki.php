@@ -1,4 +1,8 @@
  <?php
+ session_start();
+ if($_SESSION['role'] !== 'author'){
+    header('Location:../../login.php ');
+}
  require_once'../../../Controllers/CategoryController/displayCategoryController.php';
  require_once'../../../Controllers/TagController/displayTagController.php';
  ?>
@@ -67,31 +71,7 @@
 
                      </div>
                  </div>
-                 <!-- 
-                 <div class="mb-4">
-                     <label for="tags" class="block text-sm font-medium text-gray-600">Sélectionner les tags :</label>
-                     <div class="flex flex-wrap gap-2">
-                         <select name="selectedTags[]" multiple
-                             class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md     focus:outline-none focus:ring">
 
-                             <?php
-            
-                            // foreach($TagDatas as $TagData) {
-                            //     echo "<option value='" . $TagData['idTag'] . "' >" . $TagData['nameTag'] . "</option>";
-                            // }
-                            ?>
-                         </select>
-
-                         <button type="button" onclick="addSelectedTag()"
-                             class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Ajouter Tag</button>
-                     </div>
-                 </div> -->
-                 <!-- <div class="mb-4">
-                     <p class="text-sm font-medium text-gray-600 mb-2">Tags sélectionnés :</p>
-                     <div id="selectedTagsContainer" class="flex flex-wrap gap-2"></div>
-                 </div> -->
-
-                 <!-- tags end -->
 
                  <div>
                      <label class="block text-sm font-medium text-black">
@@ -121,6 +101,15 @@
                      </div>
                  </div>
              </div>
+
+             <?php
+           
+
+            if (isset($_SESSION['error'])) {
+            echo '<div class="text-red-500">' . $_SESSION['error'] . '</div>';
+            unset($_SESSION['error']); // Effacer le message après l'affichage
+            }
+            ?>
 
              <div class="flex justify-end mt-6">
                  <button

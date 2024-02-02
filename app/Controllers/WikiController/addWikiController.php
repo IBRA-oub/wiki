@@ -40,13 +40,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $path = "../../../../public/uploads/";
     
     $pictureWiki = $path .  $nomImage ;
-
+ 
     // ===============================image end========================
+
+    if (empty($title) || empty($summarize) || empty($content) || empty($idCategory) || empty($tagIds)|| empty($nomImage)) {
+        $_SESSION['error'] = "Veuillez remplir tous les champs du formulaire.";
+        header('location: ../../Views/author/wiki/addWiki.php');
+        exit();
+    }
 
     try {
         // Créer une instance de Wiki avec les données du formulaire
         $wiki = new Wiki($title, $content, $summarize, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'),$pictureWiki, $idCategory, $idUser);
-       ;
+        $dateCreate = $wiki->getDateCreated();
+        $_SESSION['dateCreate'] = $dateCreate;
+       
+       
         // Insérer le wiki avec ses tags
         $wikiService = new WikiImp();
         $wikiService->addWiki($wiki, $tagIds);

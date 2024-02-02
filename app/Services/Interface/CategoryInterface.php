@@ -8,6 +8,7 @@ interface CategoryInterface
     public function displayLastCategory();
     public function fetchCategory($id);
     public function countCategory();
+    public function search($string);
 }
  
 ?>

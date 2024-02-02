@@ -14,6 +14,9 @@ public function dispalyArchivedWiki();
 public function displayLastWiki();
 
 public function fetchWikiId($idWiki);
+public function fetcTagId($idWiki);
+public function fetcauthor($idWiki);
+public function search($string);
 public function fetchWikiCategory($idCategory);
 
 public function countWiki();

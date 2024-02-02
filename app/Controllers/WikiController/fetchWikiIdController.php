@@ -9,6 +9,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     
     $fetchdWiki = new WikiImp();
     $WikiDataFetch = $fetchdWiki->fetchWikiId($idWiki);
+    $tagsDatasFetch = $fetchdWiki->fetcTagId($idWiki);
+    $userNameDataFetch = $fetchdWiki->fetcauthor($idWiki);
+    
+  
     // var_dump($WikiDataFetch);
    
     if(!$WikiDataFetch){

@@ -14,7 +14,7 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/d0fb25e48c.js" crossorigin="anonymous"></script>
-    <title>HomePage</title>
+    <title>wiki of category</title>
 </head>
 
 <body class="bg-gray-100">
@@ -78,7 +78,7 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
 
             <!-- search bar end -->
             <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-red-600 font-bold  rounded-xl transition duration-200"
-                href="#">
+                href="../../login.php">
                 <span class="flex items-center">
                     <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                     <span>Sign In</span>
@@ -86,7 +86,7 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
             </a>
 
             <a class="hidden lg:inline-block py-2 px-6   text-sm text-blue-600 font-bold rounded-xl transition duration-200"
-                href="#">
+                href="../../signUp.php">
                 <span class="flex items-center">
                     <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                     <span>Sign Up</span>
@@ -106,7 +106,7 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <div class="w-[90%]  ">
-                    <img class="w-[20%]" src=' ../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                    <img class="w-[20%]" src='../../../../public/images/logoMobile.png ' alt="LogoCarrefour">
                 </div>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -128,7 +128,7 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
                     </li>
                     <li class="mb-1">
                         <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                            href="#">wikis</a>
+                            href="wikis.php">wikis</a>
                     </li>
 
                 </ul>
@@ -137,17 +137,17 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
                 <div class="pt-6">
 
                     <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                        href="#">
+                        href="../../login.php">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src=' ../../../public/images/login.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                             <span>Sign In</span>
                         </span>
                     </a>
 
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
-                        href="#">
+                        href="../../signUp.php">
                         <span class="flex items-center">
-                            <img class="w-5 mr-2" src='../../../public/images/utilisateur.png' alt="Login Image">
+                            <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                             <span>Sign Up</span>
                         </span>
                     </a>
@@ -166,7 +166,7 @@ require_once'../../../Controllers/WikiController/fetchWikiCategoryController.php
     <div class="container mx-auto my-6 flex items-center justify-center ">
 
         <!-- Element centré -->
-        <h3 class="font-black text-gray-800 md:text-3xl text-xl">All Wikis</h3>
+        <h3 class="font-black text-gray-800 md:text-3xl text-xl">All Wikis for this Category</h3>
 
     </div>
     <div class="container mx-4 md:mx-16 mt-10 flex flex-wrap md:flex-nowrap">

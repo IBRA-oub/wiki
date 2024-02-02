@@ -1,183 +1,111 @@
- // ==========Burger menus for navbar=============
- document.addEventListener('DOMContentLoaded', function() {
-    // open
-    const burger = document.querySelectorAll('.navbar-burger');
-    const menu = document.querySelectorAll('.navbar-menu');
+// ==========Burger menus for navbar=============
+document.addEventListener("DOMContentLoaded", function () {
+  // open
+  const burger = document.querySelectorAll(".navbar-burger");
+  const menu = document.querySelectorAll(".navbar-menu");
 
-    if (burger.length && menu.length) {
-        for (var i = 0; i < burger.length; i++) {
-            burger[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
+  if (burger.length && menu.length) {
+    for (var i = 0; i < burger.length; i++) {
+      burger[i].addEventListener("click", function () {
+        for (var j = 0; j < menu.length; j++) {
+          menu[j].classList.toggle("hidden");
         }
+      });
     }
+  }
 
-    // close
-    const close = document.querySelectorAll('.navbar-close');
-    const backdrop = document.querySelectorAll('.navbar-backdrop');
+  // close
+  const close = document.querySelectorAll(".navbar-close");
+  const backdrop = document.querySelectorAll(".navbar-backdrop");
 
-    if (close.length) {
-        for (var i = 0; i < close.length; i++) {
-            close[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
+  if (close.length) {
+    for (var i = 0; i < close.length; i++) {
+      close[i].addEventListener("click", function () {
+        for (var j = 0; j < menu.length; j++) {
+          menu[j].classList.toggle("hidden");
         }
+      });
     }
+  }
 
-    if (backdrop.length) {
-        for (var i = 0; i < backdrop.length; i++) {
-            backdrop[i].addEventListener('click', function() {
-                for (var j = 0; j < menu.length; j++) {
-                    menu[j].classList.toggle('hidden');
-                }
-            });
+  if (backdrop.length) {
+    for (var i = 0; i < backdrop.length; i++) {
+      backdrop[i].addEventListener("click", function () {
+        for (var j = 0; j < menu.length; j++) {
+          menu[j].classList.toggle("hidden");
         }
+      });
     }
+  }
 });
 // =================navbar-close =================
 
-// ===================validation =================
-$(document).ready(function(){
+// ===================validation ragester =================
+const fullNameInput = document.querySelector('input[name="fullName"]');
+const usernameInput = document.querySelector('input[name="username"]');
+const emailInput = document.querySelector('input[name="email"]');
+const passwordInput = document.querySelector('input[name="password"]');
+const pictureUserInput = document.querySelector('input[name="pictureUser"]');
+const errorMessages = document.querySelectorAll(".errorMessage");
 
-    function validateFields(input) {
+const form = document.querySelector("form");
+let isFormValid = false;
 
-        const field = document.querySelector(`#${input}`);
-        let errorCheck = false;
+const fullNameRegex = /^[a-zA-Z\s']+$/;
+const usernameRegex = /^[a-zA-Z0-9_]+$/;
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-        if (field.value.trim() == "") {
+const validateInput = () => {
+  isFormValid = true; // Réinitialiser à true à chaque validation
 
-            setStatus(field, `${field.previousElementSibling.innerText} cannot be blank`, "error");
-            errorCheck = true;
+  if (!fullNameRegex.test(fullNameInput.value)) {
+    errorMessages[0].innerText = "Veuillez entrer un nom complet valide.";
+    isFormValid = false;
+  } else {
+    errorMessages[0].innerText = "";
+  }
 
-        } else {
+  if (!usernameRegex.test(usernameInput.value)) {
+    errorMessages[1].innerText = "Veuillez entrer un nom d'utilisateur valide.";
+    isFormValid = false;
+  } else {
+    errorMessages[1].innerText = "";
+  }
 
-            setStatus(field, null, "success");
+  if (!emailRegex.test(emailInput.value)) {
+    errorMessages[2].innerText = "Veuillez entrer une adresse e-mail valide.";
+    isFormValid = false;
+  } else {
+    errorMessages[2].innerText = "";
+  }
 
-        }
+  if (!passwordRegex.test(passwordInput.value)) {
+    errorMessages[3].innerText =
+      "Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule et un chiffre.";
+    isFormValid = false;
+  } else {
+    errorMessages[3].innerText = "";
+  }
+};
 
-        if (field.type === "email") {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-        const regex = /^\S+@\S+\.\S+$/;
+  validateInput();
 
-            if(regex.test(field.value)) {
-                setStatus(field, null, "success");
-            } else {
-                setStatus(field, 'Please enter a valid email address', "error");
-                errorCheck = true;
-            }
-        }
+  if (isFormValid) {
+    form.submit(); // Soumettre le formulaire si la validation réussit
+  }
+});
 
-        if (field.type === "password") {
+// Ajouter des écouteurs d'événements sur les champs pour valider à chaque saisie
+fullNameInput.addEventListener("input", validateInput);
+usernameInput.addEventListener("input", validateInput);
+emailInput.addEventListener("input", validateInput);
+passwordInput.addEventListener("input", validateInput);
 
-            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+// ========================================================
 
-            if(regex.test(field.value)) {
-                setStatus(field, null, "success");
-            } else {
-                setStatus(field, 'Please enter a valid password', "error");
-                errorCheck = true;
-            }
+// ===============login validation ====================
 
-        }
-
-        if (field.id === "fullname") {
-
-            const regex = /^[a-z ]+$/;
-
-            if(regex.test(field.value)) {
-                setStatus(field, null, "success");
-            } else {
-                setStatus(field, 'Please enter a valid name', "error");
-                errorCheck = true;
-            }
-
-        }
-
-        // if (field.id === "confirm-password") {
-
-        //     const confirmField = document.querySelector(`#password`);
-            
-        //     if(field.value != confirmField.value) {
-        //         setStatus(field, "Password does not match", "error");
-        //         errorCheck = true;
-        //     } else {
-        //         setStatus(field, null, "success");
-        //     }
-        // }
-
-        return errorCheck;
-
-    }
-
-    function setStatus(field, message, status) {
-        const errorMessage = field.parentElement.querySelector(".error-message");
-
-        if (status === "success") {
-
-            if (errorMessage) {
-                errorMessage.innerText = "";
-            }
-
-            field.classList.remove("border-2");
-            field.classList.remove("border-red-500");
-            field.classList.remove("border-solid");
-
-        }
-
-        if (status === "error") {
-
-            field.parentElement.querySelector(".error-message").innerText = message;
-            field.classList.add("border-2");
-            field.classList.add("border-red-500");
-            field.classList.add("border-solid");
-
-        }
-
-    }
-      
-
-    $('form input:file').change(function () {
-        $('form p').text(this.files.length + " file selected");
-    });
-
-    $(document).on('input', 'input', function(event){
-        validateFields(event.target.id)
-    });
-
-
-    $(document).on('submit', 'form', function(event){
-
-        event.preventDefault();
-        let formData = new FormData(this);
-
-        let errorCheck = false;
-        for(const[key, value] of formData) {
-            if(key != "picture"){
-                if(validateFields(key)){
-                    errorCheck = true;
-                }
-            }
-        }
-
-        if(!errorCheck){
-            // $.ajax({
-            //     url: $(this).attr('action'),
-            //     type: 'POST',
-            //     data: formData,
-            //     cache: false,
-            //     processData: false,
-            //     contentType: false,
-            //     success: function(response){
-            //         let data = JSON.parse(response);
-            //     }
-    
-            // })
-        }
-
-    });
-
-}); 

@@ -1,6 +1,8 @@
 <?php
 require_once'../../../Controllers/CategoryController/displayLastCategoryController.php';
 require_once'../../../Controllers/WikiController/displayLastWikiController.php';
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +16,9 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/d0fb25e48c.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>HomePage</title>
 </head>
 
@@ -62,7 +67,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
 
         <div class="flex">
             <!-- search bar -->
-            <div class="relative mr-3 md:mr-0 hidden md:block">
+            <div class="relative mr-3 md:mr-0 ">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +76,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                             clip-rule="evenodd"></path>
                     </svg>
                 </div>
-                <input type="text" id="email-adress-icon"
+                <input type="text" id="search-navbar"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
                     placeholder="Search...">
             </div>
@@ -137,7 +142,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                 <div class="pt-6">
 
                     <a class="block px-4 py-3 mb-3  text-red-500 text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                        href="#">
+                        href="../../login.php">
                         <span class="flex items-center">
                             <img class="w-5 mr-2" src='../../../../public/images/login.png' alt="Login Image">
                             <span>Sign In</span>
@@ -145,7 +150,7 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                     </a>
 
                     <a class="block px-4 py-3 mb-2 leading-loose text-xs text-blue-600 text-center  font-semibold    rounded-xl"
-                        href="#">
+                        href="../../signUp.php">
                         <span class="flex items-center">
                             <img class="w-5 mr-2" src='../../../../public/images/utilisateur.png' alt="Login Image">
                             <span>Sign Up</span>
@@ -163,13 +168,15 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
     <!-- =================mobile menu end=============== -->
     <!-- navbar-end -->
 
+    <div id="tag-wrapper" class=" flex mt-6 ">
 
+    </div>
     <!-- Contenu principal -->
-    <div class="container mx-4 md:mx-16 mt-10 flex flex-wrap md:flex-nowrap">
+    <div id="content-wrapper" class="container mx-4 md:mx-16 mt-10 flex flex-wrap md:flex-nowrap">
 
         <!-- Section de gauche (2/3) -->
 
-        <div class="w-full md:w-2/3 p-4 bg-white mb-4 md:mb-0 md:mr-2 shadow-lg rounded-md">
+        <div id='wiki-wrapper' class="w-full md:w-2/3 p-4 bg-white mb-4 md:mb-0 md:mr-2 shadow-lg rounded-md">
             <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
                 Les derniere Wiki ajouter
             </h1>
@@ -182,17 +189,27 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                 <?php $cheminImage = $WikiData['pictureWiki'];
                 echo "<img src='$cheminImage' class='rounded-md object-cover w-full h-64'>"
                 ?>
-                <?php
+                <div class="flex">
+                    <?php
                         foreach($categoryData as $catData){
                             // condition pour affichier le categorie associe a le wiki
                             if ($catData['idCategory'] == $WikiData['idCategory']) {
                         ?>
 
-                <span class="text-green-700 text-sm hidden md:block mt-4"> <?php echo $catData['nameCategory']?> </span>
-                <?php
+                    <span class="text-green-700 text-sm hidden md:block mt-4"> <?php echo $catData['nameCategory'];?>
+                        &ensp;|&ensp;
+                    </span>
+                    <?php
                             }
                         }
                         ?>
+                    <span class="text-gray-700 text-sm hidden md:block mt-4">
+                        dateCreate:<?php echo $WikiData['dateCreated']?>
+                    </span>
+                    <span class="text-gray-700 text-sm hidden md:block mt-4"> &ensp;|&ensp; dateModified:
+                        <?php echo $WikiData['dateModified']?>
+                    </span>
+                </div>
                 <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
                     <?php echo $WikiData['title'] ?>
                 </h1>
@@ -209,17 +226,15 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
             }
             ?>
 
-
-
-
-
-            <a href="wikis.php" class="bg-green-700 text-white px-10 py-4 rounded ml-[77%] ">Show more wikis -></a>
+            <a href="wikis.php"
+                class="bg-green-700 text-sm md:text-lg text-white px-10 py-4 rounded ml-[10%]md:ml-[77%] ">Show
+                more wikis -></a>
 
             <!-- sub-main posts -->
         </div>
 
         <!-- Section de droite (1/3) -->
-        <div class="w-full md:w-1/3 p-4 bg-white md:ml-2 shadow-lg rounded-md">
+        <div id="category-wrapper" class="w-full md:w-1/3 p-4 bg-white md:ml-2 shadow-lg rounded-md">
             <h1 class="text-gray-800 text-4xl font-bold mt-2 mb-2 leading-tight">
                 Les derniere Categories ajouter
             </h1>
@@ -252,7 +267,9 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
                 ?>
 
 
-                <a href=" categories.php" class="bg-green-700 text-white px-10 py-4 rounded ml-[20%] my-22">Show more
+                <a href=" categories.php"
+                    class="bg-green-700 text-sm md:text-lg  text-white px-10 py-4 rounded ml-[20%] my-22">Show
+                    more
                     Categories
                     -></a>
 
@@ -452,7 +469,10 @@ require_once'../../../Controllers/WikiController/displayLastWikiController.php';
 
 
 
+
     <script src="../../../../public/js/main.js"></script>
+    <script src="../../../../public/js/search.js"></script>
+
 </body>
 
 </html>

@@ -105,7 +105,20 @@ class CategoryImp extends DataBase implements CategoryInterface{
         return  $countCategory;
     }
 
-    
+    public function search($string){
+        $string = '%'.$string.'%';
+        $pdo = $this->connection();
+
+        $sql = "SELECT * FROM category WHERE nameCategory LIKE :string ";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':string', $string);
+        
+        $stmt->execute();
+        $fetchCategory = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return  $fetchCategory;
+    }
 }
 
 

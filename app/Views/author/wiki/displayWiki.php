@@ -1,6 +1,12 @@
 <?php
 
+
+
 require_once'../../../Controllers/WikiController/displayWikiController.php';
+require_once'../../../Controllers/UserController/fetchUserController.php';
+if($_SESSION['role'] !== 'author'){
+    header('Location:../../login.php ');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +48,7 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
                         <img class="h-8 sm:w-8 w-full" src="../../../../public/images/wiki.png" alt=""><span
                             class="hidden sm:inline-block">Wikis</span></a>
                 </li>
-                <li> <a href=""
+                <li> <a href="../../clientUI/allFolder/home.php"
                         class="bg-[#B5CB99] h-10 w-[50%] sm:w-full flex justify-center items-center rounded-lg text-[#0F1A19] font-bold m-auto mt-10"><button
                             type="button"><i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i></i> <span
                                 class="hidden sm:inline-block">LOG
@@ -53,17 +59,36 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
 
 
         </aside>
-        <!-- =========== Aside bar =========== -->
+        <!-- =========== side bar end=========== -->
 
         <!-- =========== Content =========== -->
         <main class="bg-gray-100 flex-grow h-[100vh] relative">
-            <!-- ============== header =========== -->
+            <!-- ================header=============== -->
+            <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
 
-            <!--===========Content===========-->
+
+                <div class="flex flex-shrink-0 items-center ml-auto">
+                    <button class=" text-black inline-flex items-center p-2 hover:bg-gray-100  rounded-lg">
+
+                        <div class=" md:flex md:flex-col md:items-end md:leading-tight">
+                            <span class="font-semibold"><?php echo $fetchUserData['username']?></span>
+                            <span class="text-sm text-gray-600"><?php echo $fetchUserData['role']?></span>
+                        </div>
+                        <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                            <?php
+                            $cheminImage = $fetchUserData['pictureUser'];
+                            echo "<img src='$cheminImage' alt='user profile photo'
+                                class=' h-full w-full object-cover'>" 
+                                ?>
+                        </span>
+                    </button>
+
+                </div>
+            </header>
+            <!-- ================header end =============== -->
+
             <main class="bg-gray-100 flex-grow h-[100vh] relative">
-                <!-- ============== header =========== -->
 
-                <!-- ============ Content ============= -->
 
                 <div class="md:p-6 bg-white md:m-5">
                     <div class="flex items-center justify-between">
@@ -102,7 +127,7 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
                                 <?php 
               foreach($WikiDatas as $WikiData) {
               ?>
-                                <tr class=" pt-10 sm:pt-0  w-full ">
+                                <tr class=" pt-10 sm:pt-0  w-full border-b-4 border-green-500">
 
                                     <td class=" sm:text-center text-right">
                                         <?php echo  $WikiData['idWiki'] ?>
@@ -182,7 +207,7 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
 
                                     <td data-label="id"
                                         class="border-b before:content-['id']  before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 sm:before:hidden sm:text-center block    text-right">
-                                        <?php echo  $WikiData['idTag'] ?>
+                                        <?php echo  $WikiData['idWiki'] ?>
                                     </td>
                                     <td data-label="title" class="border-b before:content-['title'] before:absolute before:left-0 before:w-1/2 before:font-bold before:text-left before:pl-2 block  sm:before:hidden sm:text-center 
                              text-right">
@@ -248,25 +273,25 @@ require_once'../../../Controllers/WikiController/displayWikiController.php';
 
 
             </main>
-            <!-- ========== overlay ================= -->
+        </main>
 
-            <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-            <script src="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.js"></script>
 
-            <script>
-            $(document).ready(function() {
-                $('#table1').DataTable();
+        <script>
+        $(document).ready(function() {
+            $('#table1').DataTable();
 
-            });
-            $(document).ready(function() {
-                $('#table2').DataTable();
+        });
+        $(document).ready(function() {
+            $('#table2').DataTable();
 
-            });
-            </script>
+        });
+        </script>
 
 
-            </script>
+        </script>
 
 </body>
 

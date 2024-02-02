@@ -13,7 +13,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
 
     <script src="https://kit.fontawesome.com/d0fb25e48c.js" crossorigin="anonymous"></script>
-    <title>HomePage</title>
+    <title>Categories</title>
 </head>
 
 <body class="bg-gray-100">
@@ -52,7 +52,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
                         d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
                 </svg>
             </li>
-            <li><a class="text-sm text-blue-600 hover:font-bold  hover:text-blue-900" href="wikis">wikis</a>
+            <li><a class="text-sm text-blue-600 hover:font-bold  hover:text-blue-900" href="wikis.php">wikis</a>
             </li>
 
         </ul>
@@ -103,7 +103,7 @@ require_once'../../../Controllers/CategoryController/displayCategoryController.p
             class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div class="flex items-center mb-8">
                 <div class="w-[90%]  ">
-                    <img class="w-[20%]" src=' ../../../public/images/logoMobile.png ' alt="LogoCarrefour">
+                    <img class="w-[20%]" src='../../../../public/images/logoMobile.png ' alt="LogoCarrefour">
                 </div>
                 <button class="navbar-close">
                     <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
